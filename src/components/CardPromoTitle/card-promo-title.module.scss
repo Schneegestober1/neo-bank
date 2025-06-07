@@ -1,0 +1,29 @@
+@use '../../styles/color-palette.scss' as *;
+@use '../../styles/mixins.scss' as *;
+
+.promo {
+  padding-left: calc(50% - 580px);
+  padding-right: calc(50% - 580px);
+}
+
+.title {
+  max-width: 622px;
+  width: 100%;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 50px;
+}
+
+.button {
+  width: 9rem;
+  height: 3.125rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 16px;
+  padding: 0.5rem;
+  outline: 0;
+  border: 0;
+  color: $white-1;
+  background: $blue-1;
+  cursor: pointer;
+}

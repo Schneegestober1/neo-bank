@@ -45,17 +45,16 @@
 }
 
 .menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 3.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 3.5rem;
 }
 
 @media (max-width: 500px) {
-    .header {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-
+  .header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 }
