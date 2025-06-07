@@ -1,0 +1,61 @@
+@use '../../styles/color-palette.scss' as *;
+@use '../../styles/mixins.scss' as *;
+
+.header {
+  padding-left: calc(50% - 580px);
+  padding-right: calc(50% - 580px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 2%;
+  line-height: 112%;
+  color: $logo-color;
+  cursor: pointer;
+}
+
+.menuLink {
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 2%;
+  line-height: 112%;
+  color: $black-1;
+}
+
+.button {
+  width: 8rem;
+  height: 3.125rem;
+  border-radius: 16px;
+  padding: 0.5rem;
+  border: 0;
+  outline: 0;
+  color: $white-1;
+  background: $blue-1;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 2%;
+  line-height: 112%;
+  cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 3.5rem;
+}
+
+@media (max-width: 500px) {
+    .header {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+}
