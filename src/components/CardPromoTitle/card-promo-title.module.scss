@@ -22,15 +22,6 @@
 .button {
   width: 9rem;
   height: 3.125rem;
-  font-size: 1rem;
-  font-weight: 700;
-  border-radius: 16px;
-  padding: 0.5rem;
-  outline: 0;
-  border: 0;
-  color: $white-1;
-  background: $blue-1;
-  cursor: pointer;
 }
 
 .images {
@@ -39,4 +30,5 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
+  cursor: pointer;
 }

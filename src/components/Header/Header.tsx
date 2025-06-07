@@ -1,3 +1,4 @@
+import Button from '../Button/Button'
 import styles from './header.module.scss'
 
 export const Header = () => {
@@ -30,7 +31,7 @@ export const Header = () => {
         </ul>
       </nav>
 
-      <button className={styles.button}>Online Bank</button>
+      <Button className={styles.button}>Online Bank</Button>
     </header>
   )
 }
