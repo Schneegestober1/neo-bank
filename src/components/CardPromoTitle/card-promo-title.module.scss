@@ -4,13 +4,16 @@
 .promo {
   padding-left: calc(50% - 580px);
   padding-right: calc(50% - 580px);
+  display: flex;
+  gap: 10rem;
+  margin-top: 8.1875rem;
 }
 
 .title {
   max-width: 622px;
   width: 100%;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 2.3rem;
   line-height: 50px;
 }
 
@@ -26,4 +29,12 @@
   color: $white-1;
   background: $blue-1;
   cursor: pointer;
+}
+
+.images {
+  max-width: 518px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
 }

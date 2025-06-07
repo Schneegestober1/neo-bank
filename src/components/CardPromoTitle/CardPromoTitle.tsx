@@ -1,3 +1,4 @@
+import CardImage from '../CardImage/CardImage'
 import styles from './card-promo-title.module.scss'
 
 export const CardPromoTitle = () => {
@@ -8,10 +9,10 @@ export const CardPromoTitle = () => {
         <button className={styles.button}>Choose the card</button>
       </div>
       <div className={styles.images}>
-        <img src="" alt="Card design 1" className={styles.image} />
-        <img src="" alt="Card design 2" className={styles.image} />
-        <img src="" alt="Card design 3" className={styles.image} />
-        <img src="" alt="Card design 4" className={styles.image} />
+        <CardImage src="cardImage1.jpg" alt="Card design 1" className={styles.image} />
+        <CardImage src="cardImage2.jpg" alt="Card design 2" className={styles.image} />
+        <CardImage src="cardImage3.jpg" alt="Card design 3" className={styles.image} />
+        <CardImage src="cardImage4.jpg" alt="Card design 4" className={styles.image} />
       </div>
     </section>
   )
