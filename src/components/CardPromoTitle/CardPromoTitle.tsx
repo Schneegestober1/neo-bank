@@ -7,7 +7,6 @@ export const CardPromoTitle = () => {
     <section className={styles.promo}>
       <div className={styles.content}>
         <h1 className={styles.title}>Choose the design you like and apply for card right now</h1>
-        {/* <button className={styles.button}>Choose the card</button> */}
         <Button className={styles.button}>Choose the card</Button>
       </div>
       <div className={styles.images}>
