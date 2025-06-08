@@ -1,3 +1,4 @@
+import BankIcon from '../../assets/icons/BankIcon'
 import styles from './currency-rate.module.scss'
 
 const CurrencyRate = () => {
@@ -44,6 +45,7 @@ const CurrencyRate = () => {
             </ul>
           </div>
         </article>
+        <BankIcon />
 
         <div className={styles.footer}>
           <a href="#" className={styles.link}>
