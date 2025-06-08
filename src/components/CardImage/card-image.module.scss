@@ -2,3 +2,17 @@
   width: 15.75rem;
   height: 9.375rem;
 }
+
+@media (max-width: 900px) {
+  .image {
+    width: 10.75rem;
+    height: 6.375rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .image {
+    width: 7rem;
+    height: 5rem;
+  }
+}

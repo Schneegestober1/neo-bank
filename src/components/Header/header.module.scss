@@ -42,10 +42,21 @@
   gap: 3.5rem;
 }
 
+@media (max-width: 900px) {
+  .header {
+    padding-left: calc(50% - 400px);
+    padding-right: calc(50% - 400px);
+  }
+}
+
 @media (max-width: 500px) {
   .header {
     display: flex;
     align-items: center;
     flex-direction: column;
+  }
+  .button {
+    width: 7rem;
+    height: 3rem;
   }
 }
