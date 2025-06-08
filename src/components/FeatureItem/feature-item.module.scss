@@ -1,0 +1,14 @@
+@use '../../styles/color-palette.scss' as *;
+
+.featureItem {
+  display: flex;
+  gap: 1rem;
+}
+
+.featureText {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 30px;
+  font-family: 'Rubik', sans-serif;
+  color: $gray-1;
+}

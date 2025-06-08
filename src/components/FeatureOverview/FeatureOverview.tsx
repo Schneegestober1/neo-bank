@@ -1,4 +1,4 @@
-import CheckMarkIcon from '../../assets/icons/CheckMarkIcon'
+import FeatureItem from '../FeatureItem/FeatureItem'
 import styles from './feature-overview.module.scss'
 
 const FeatureOverview = () => {
@@ -14,22 +14,10 @@ const FeatureOverview = () => {
           feature
         </p>
         <div className={styles.featuresList}>
-          <div className={styles.featureItem}>
-            <CheckMarkIcon />
-            <p className={styles.featureText}>Powerfull online protection.</p>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckMarkIcon />
-            <p className={styles.featureText}>Cashback without borders.</p>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckMarkIcon />
-            <p className={styles.featureText}>Personal design</p>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckMarkIcon />
-            <p className={styles.featureText}>Work anywhere in the world</p>
-          </div>
+          <FeatureItem>Powerfull online protection.</FeatureItem>
+          <FeatureItem>Cashback without borders.</FeatureItem>
+          <FeatureItem>Personal design</FeatureItem>
+          <FeatureItem>Work anywhere in the world</FeatureItem>
         </div>
       </div>
     </section>
