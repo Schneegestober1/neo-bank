@@ -19,15 +19,15 @@ const FeatureOverview = () => {
             <p className={styles.featureText}>Powerfull online protection.</p>
           </div>
           <div className={styles.featureItem}>
-            <img src="" alt="" className={styles.icon} />
+            <CheckMarkIcon />
             <p className={styles.featureText}>Cashback without borders.</p>
           </div>
           <div className={styles.featureItem}>
-            <img src="" alt="" className={styles.icon} />
+            <CheckMarkIcon />
             <p className={styles.featureText}>Personal design</p>
           </div>
           <div className={styles.featureItem}>
-            <img src="" alt="" className={styles.icon} />
+            <CheckMarkIcon />
             <p className={styles.featureText}>Work anywhere in the world</p>
           </div>
         </div>

@@ -2,6 +2,32 @@
 @use '../../styles/mixins.scss' as *;
 
 .featuresSection {
-    padding-left: calc(50% - 580px);
+  padding-left: calc(50% - 580px);
   padding-right: calc(50% - 580px);
+}
+
+.title {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  font-size: 2.1875rem;
+  line-height: 50px;
+  color: $black-3;
+}
+
+.description {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 30px;
+  font-family: 'Rubik', sans-serif;
+  color: $gray-1;
+}
+
+
+
+.featureText {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 30px;
+  font-family: 'Rubik', sans-serif;
+  color: $gray-1;
 }
