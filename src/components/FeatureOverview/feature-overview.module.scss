@@ -1,0 +1,7 @@
+@use '../../styles/color-palette.scss' as *;
+@use '../../styles/mixins.scss' as *;
+
+.featuresSection {
+    padding-left: calc(50% - 580px);
+  padding-right: calc(50% - 580px);
+}
