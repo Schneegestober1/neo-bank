@@ -12,16 +12,51 @@ function FinancialNewsBlock() {
         </p>
       </div>
 
-      <div className={styles.card}>
-        <CardImage src="public/ethhereum.jpg" alt="image news" className={styles.image} />
-        <h4 className={styles.cardTitle}>
-          Ethereum just pulled off its final test run ahead of one of the most important events in
-          crypto - CN
-        </h4>
-        <p className={styles.cardText}>
-          Ethereum is moving closer to adopting a proof-of-stake model for its network, which is
-          less energy intensive.
-        </p>
+      <div className={styles.cardBox}>
+        <div className={styles.card}>
+          <CardImage src="public/ethhereum.jpg" alt="image news" className={styles.image} />
+          <h4 className={styles.cardTitle}>
+            Ethereum just pulled off its final test run ahead of one of the most important events in
+            crypto - CN
+          </h4>
+          <p className={styles.cardText}>
+            Ethereum is moving closer to adopting a proof-of-stake model for its network, which is
+            less energy intensive.
+          </p>
+        </div>
+        <div className={styles.card}>
+          <CardImage src="public/ethhereum.jpg" alt="image news" className={styles.image} />
+          <h4 className={styles.cardTitle}>
+            Ethereum just pulled off its final test run ahead of one of the most important events in
+            crypto - CN
+          </h4>
+          <p className={styles.cardText}>
+            Ethereum is moving closer to adopting a proof-of-stake model for its network, which is
+            less energy intensive.
+          </p>
+        </div>
+        <div className={styles.card}>
+          <CardImage src="public/ethhereum.jpg" alt="image news" className={styles.image} />
+          <h4 className={styles.cardTitle}>
+            Ethereum just pulled off its final test run ahead of one of the most important events in
+            crypto - CN
+          </h4>
+          <p className={styles.cardText}>
+            Ethereum is moving closer to adopting a proof-of-stake model for its network, which is
+            less energy intensive.
+          </p>
+        </div>
+        <div className={styles.card}>
+          <CardImage src="public/ethhereum.jpg" alt="image news" className={styles.image} />
+          <h4 className={styles.cardTitle}>
+            Ethereum just pulled off its final test run ahead of one of the most important events in
+            crypto - CN
+          </h4>
+          <p className={styles.cardText}>
+            Ethereum is moving closer to adopting a proof-of-stake model for its network, which is
+            less energy intensive.
+          </p>
+        </div>
       </div>
     </section>
   )
