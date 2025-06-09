@@ -10,6 +10,7 @@
   width: 100%;
   border-radius: 24px;
   background: linear-gradient(to bottom, $gray-2, $gray-3);
+  padding: 2rem;
 }
 
 .title {
@@ -30,5 +31,30 @@
   font-weight: 500;
   font-size: 1.125rem;
   line-height: 50px;
+  color: $black-0;
+}
+
+.link {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 112%;
+  letter-spacing: 2%;
+  color: $white-1;
+}
+
+
+.currency {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 112%;
+  letter-spacing: 2%;
+  color: $gray-4;
+}
+
+.value {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 112%;
+  letter-spacing: 2%;
   color: $black-0;
 }
