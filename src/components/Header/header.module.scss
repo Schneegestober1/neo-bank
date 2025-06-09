@@ -11,6 +11,10 @@
   margin-top: 3px;
 }
 
+.nav {
+  order: 2;
+}
+
 .logo {
   font-weight: 700;
   font-size: 1.5rem;
@@ -18,6 +22,7 @@
   line-height: 112%;
   color: $logo-color;
   cursor: pointer;
+  order: 1;
 }
 
 .menuLink {
@@ -33,6 +38,7 @@
   height: 3.125rem;
   letter-spacing: 2%;
   line-height: 112%;
+  order: 3;
 }
 
 .menu {
@@ -53,10 +59,22 @@
   .header {
     display: flex;
     align-items: center;
-    flex-direction: column;
+    padding: 3%;
   }
+  .menu {
+  display: flex;
+  gap: 2rem;
+}
+  .logo {
+  order: 1;
+}
+.nav {
+  order: 3;
+}
+
   .button {
     width: 7rem;
     height: 3rem;
+    order: 2;
   }
 }
