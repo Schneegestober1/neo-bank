@@ -4,6 +4,7 @@
 .section {
   padding-left: calc(50% - 580px);
   padding-right: calc(50% - 580px);
+  margin-top: 3rem;
 }
 
 .header {
@@ -11,13 +12,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 2.875rem;
 }
 
 .title {
   font-weight: 500;
-  font-size: 30px;
+  font-size: 1.875rem;
   line-height: 50px;
   color: $black-0;
+  margin-bottom: 0.5rem;
 }
 
 .subtitle {
@@ -36,14 +39,14 @@
 
 .cardTitle {
   font-weight: 500;
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 25px;
   color: $black-0;
 }
 
 .cardText {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 23px;
   color: $black-0;
 }
