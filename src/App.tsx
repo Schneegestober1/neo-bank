@@ -2,6 +2,7 @@ import './App.scss'
 import CardPromoTitle from './components/CardPromoTitle/CardPromoTitle'
 import CurrencyRate from './components/CurrencyRate/CurrencyRate'
 import FeatureOverview from './components/FeatureOverview/FeatureOverview'
+import GlobalAvailability from './components/GlobalAvailability/GlobalAvailability'
 import Header from './components/Header/Header'
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <CardPromoTitle />
       <FeatureOverview />
       <CurrencyRate />
+      <GlobalAvailability />
     </>
   )
 }

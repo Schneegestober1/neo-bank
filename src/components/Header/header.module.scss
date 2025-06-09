@@ -62,15 +62,15 @@
     padding: 3%;
   }
   .menu {
-  display: flex;
-  gap: 2rem;
-}
+    display: flex;
+    gap: 2rem;
+  }
   .logo {
-  order: 1;
-}
-.nav {
-  order: 3;
-}
+    order: 1;
+  }
+  .nav {
+    order: 3;
+  }
 
   .button {
     width: 7rem;
