@@ -44,17 +44,16 @@
 }
 
 @media (max-width: 500px) {
-.title {
-  font-size: 1.2rem;
-  margin-top: 1.5rem;
-  margin-bottom: 0;
+  .title {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+  }
+  .description {
+    font-weight: 500;
+    font-size: 0.9rem;
+    line-height: 50px;
+    color: $black-4;
+    margin-bottom: 3rem;
+  }
 }
-.description {
-  font-weight: 500;
-  font-size: 0.9rem;
-  line-height: 50px;
-  color: $black-4;
-  margin-bottom: 3rem;
-}
-}
-
