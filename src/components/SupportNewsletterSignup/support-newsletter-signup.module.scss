@@ -1,0 +1,104 @@
+@use '../../styles/color-palette.scss' as *;
+@use '../../styles/mixins.scss' as *;
+
+.supportSection {
+  padding-left: calc(50% - 580px);
+  padding-right: calc(50% - 580px);
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+.supportTitle {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 147%;
+  letter-spacing: 2%;
+  color: $orange-1;
+  margin-bottom: 1.875rem;
+}
+
+.newsletterTitle {
+  font-weight: 700;
+  font-size: 1.875rem;
+  line-height: 120%;
+  letter-spacing: 2%;
+  color: $black-2;
+  margin-bottom: 1.625rem;
+}
+
+.bankNewsTitle {
+  font-weight: 500;
+  font-size: 1.875rem;
+  line-height: 147%;
+  letter-spacing: 2%;
+  color: $black-2;
+  margin-bottom: 3.875rem;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $white-1;
+  border-radius: 20px;
+  padding: 26px 32px;
+  gap: 10px;
+  box-shadow: 0 10px 20px $black-7;
+  margin-bottom: 6.125rem;
+}
+
+.input {
+  outline: 0;
+  border: 0;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 147%;
+  letter-spacing: 2%;
+  color: $purple-2;
+}
+
+.subscribeWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $purple-1;
+  padding: 0 30px 1.5px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.subscribeButton {
+  outline: 0;
+  border: 0;
+  background: transparent;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 127%;
+  color: $white-1;
+  cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .supportSection {
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+
+  .inputWrapper {
+    padding: 14px 14px;
+  }
+
+  .bankNewsTitle {
+    margin-bottom: 1.875rem;
+  }
+}
