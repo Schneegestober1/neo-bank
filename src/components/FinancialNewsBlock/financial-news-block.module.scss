@@ -105,3 +105,27 @@
   justify-content: end;
   gap: 1.125rem;
 }
+
+@media (max-width: 920px) {
+  .sliderContainer {
+    padding: 2%;
+  }
+}
+
+@media (max-width: 500px) {
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 0.7rem;
+    padding: 0 2%;
+  }
+  .buttonBox {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
