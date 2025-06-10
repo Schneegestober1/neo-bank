@@ -35,7 +35,7 @@ function FinancialNewsBlock() {
         <div className={styles.slider} ref={sliderRef}>
           {newsCardsData.map((card) => (
             <SliderCard
-              key={card.id} 
+              key={card.id}
               src={card.src}
               alt={card.alt}
               title={card.title}
