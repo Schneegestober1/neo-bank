@@ -10,7 +10,7 @@ const SupportNewsletterSignup = () => {
       <h5 className={styles.bankNewsTitle}>Bank News</h5>
       <div className={styles.inputWrapper}>
         <EnvelopeIcon className={styles.envelopeIcon} />
-        <input type="text" className={styles.input} />
+        <input type="text" className={styles.input} placeholder="Your email" />
         <div className={styles.subscribeWrapper}>
           <PlaneIcon className={styles.planeIcon} />
           <button className={styles.subscribeButton}>Subscribe</button>

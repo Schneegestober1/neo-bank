@@ -44,3 +44,46 @@ h6 {
   color: $black-2;
   margin-bottom: 3.875rem;
 }
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $white-1;
+  border-radius: 20px;
+  padding: 26px 32px;
+  gap: 10px;
+  box-shadow: 0 10px 20px $black-7;
+  margin-bottom: 98px;
+}
+
+.input {
+  outline: 0;
+  border: 0;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 147%;
+  letter-spacing: 2%;
+  color: $purple-2;
+}
+
+.subscribeWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $purple-1;
+  padding: 0 30px 1.5px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.subscribeButton {
+  outline: 0;
+  border: 0;
+  background: transparent;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 127%;
+  color: $white-1;
+    cursor: pointer;
+}
