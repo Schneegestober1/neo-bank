@@ -1,2 +1,46 @@
 @use '../../styles/color-palette.scss' as *;
 @use '../../styles/mixins.scss' as *;
+
+.supporSection {
+  padding-left: calc(50% - 580px);
+  padding-right: calc(50% - 580px);
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+.supportTitle {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 147%;
+  letter-spacing: 2%;
+  color: $orange-1;
+  margin-bottom: 1.875rem;
+}
+
+.newsletterTitle {
+  font-weight: 700;
+  font-size: 1.875rem;
+  line-height: 120%;
+  letter-spacing: 2%;
+  color: $black-2;
+  margin-bottom: 1.625rem;
+}
+
+.bankNewsTitle {
+  font-weight: 500;
+  font-size: 1.875rem;
+  line-height: 147%;
+  letter-spacing: 2%;
+  color: $black-2;
+  margin-bottom: 3.875rem;
+}

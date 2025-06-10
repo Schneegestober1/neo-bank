@@ -5,6 +5,7 @@ import FeatureOverview from './components/FeatureOverview/FeatureOverview'
 import FinancialNewsBlock from './components/FinancialNewsBlock/FinancialNewsBlock'
 import GlobalAvailability from './components/GlobalAvailability/GlobalAvailability'
 import Header from './components/Header/Header'
+import SupportNewsletterSignup from './components/SupportNewsletterSignup/SupportNewsletterSignup'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <CurrencyRate />
       <GlobalAvailability />
       <FinancialNewsBlock />
+      <SupportNewsletterSignup />
     </>
   )
 }
