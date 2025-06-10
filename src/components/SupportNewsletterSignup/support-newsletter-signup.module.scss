@@ -1,7 +1,7 @@
 @use '../../styles/color-palette.scss' as *;
 @use '../../styles/mixins.scss' as *;
 
-.supporSection {
+.supportSection {
   padding-left: calc(50% - 580px);
   padding-right: calc(50% - 580px);
   margin-top: 4rem;
@@ -54,14 +54,14 @@ h6 {
   padding: 26px 32px;
   gap: 10px;
   box-shadow: 0 10px 20px $black-7;
-  margin-bottom: 98px;
+  margin-bottom: 6.125rem;
 }
 
 .input {
   outline: 0;
   border: 0;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 1.125rem;
   line-height: 147%;
   letter-spacing: 2%;
   color: $purple-2;
@@ -85,5 +85,20 @@ h6 {
   font-size: 1rem;
   line-height: 127%;
   color: $white-1;
-    cursor: pointer;
+  cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .supportSection {
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+
+  .inputWrapper {
+    padding: 14px 14px;
+  }
+
+  .bankNewsTitle {
+    margin-bottom: 1.875rem;
+  }
 }

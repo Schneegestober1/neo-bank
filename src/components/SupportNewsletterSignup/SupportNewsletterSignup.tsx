@@ -4,7 +4,7 @@ import styles from './support-newsletter-signup.module.scss'
 
 const SupportNewsletterSignup = () => {
   return (
-    <section className={styles.supporSection}>
+    <section className={styles.supportSection}>
       <h6 className={styles.supportTitle}>Support</h6>
       <h4 className={styles.newsletterTitle}>Subscribe Newsletter & get</h4>
       <h5 className={styles.bankNewsTitle}>Bank News</h5>
