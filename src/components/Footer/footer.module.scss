@@ -53,15 +53,15 @@ ul {
 }
 
 .navigation {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .navList {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    column-gap: 40px;
-    row-gap: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 40px;
+  row-gap: 0.5rem;
 }
 
 .navList li a {
@@ -79,11 +79,36 @@ ul {
   margin-bottom: 32px;
 }
 
-
 .cookieNotice {
   font-weight: 500;
   font-size: 1rem;
   line-height: 147%;
   color: $black-5;
   padding-bottom: 92px;
+}
+
+@media (max-width: 920px) {
+  .footer {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+  .wrapper {
+    padding-top: 56px;
+  }
+
+  .tel {
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 500px) {
+  .navList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 20px;
+  }
+  .cookieNotice {
+    font-size: 10px;
+    padding-bottom: 72px;
+  }
 }
