@@ -12,13 +12,13 @@ function App() {
   return (
     <>
       <Header />
-      <CardPromoTitle />
+      {/* <CardPromoTitle />
       <FeatureOverview />
       <CurrencyRate />
       <GlobalAvailability />
       <FinancialNewsBlock />
       <SupportNewsletterSignup />
-      <Footer />
+      <Footer /> */}
     </>
   )
 }

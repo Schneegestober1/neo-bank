@@ -1,6 +1,11 @@
 @use '../../styles/color-palette.scss' as *;
 @use '../../styles/mixins.scss' as *;
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 .header {
   padding-left: calc(50% - 580px);
   padding-right: calc(50% - 580px);
@@ -47,32 +52,73 @@
     order: 3;
   }
 
-  @media (max-width: 920px) {
-    padding-left: calc(50% - 400px);
-    padding-right: calc(50% - 400px);
-  }
-
-  @media (max-width: 500px) {
-    display: flex;
+  @media (min-width: 500px) and (max-width: 920px) {
+    padding-left: 3%;
+    padding-right: 3%;
+    flex-wrap: wrap;
     align-items: center;
-    padding: 3%;
+    justify-content: center;
+    gap: 5%;
+
+    &__logo {
+      font-size: 1.3rem;
+      order: 1;
+      margin-bottom: 0;
+      width: auto;
+      text-align: left;
+    }
 
     &__menu {
-      gap: 2rem;
+      gap: 2.5rem;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      order: 2;
+      width: auto;
     }
+
+    &__menu-link {
+      font-size: 1rem;
+    }
+
+    &__button {
+      width: 8rem;
+      height: 3rem;
+      order: 3;
+      margin-top: 0;
+      align-self: center;
+    }
+  }
+
+  @media (min-width: 320px) and (max-width: 500px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3%;
 
     &__logo {
       order: 1;
-    }
-
-    &__nav {
-      order: 3;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      width: 100%;
+      text-align: center;
     }
 
     &__button {
       width: 7rem;
       height: 3rem;
       order: 2;
+      margin-top: 0.5rem;
+      align-self: center;
+      cursor: pointer;
+    }
+
+    &__menu {
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      order: 3;
+      width: 100%;
+      margin-bottom: 1rem;
     }
   }
 }
