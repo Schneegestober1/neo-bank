@@ -1,4 +1,4 @@
-import FeatureItem from '../shared/FeatureItem/FeatureItem'
+import FeatureItem from '../../shared/FeatureItem/FeatureItem'
 import styles from './feature-overview.module.scss'
 
 const FeatureOverview = () => {

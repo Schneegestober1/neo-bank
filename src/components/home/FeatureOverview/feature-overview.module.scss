@@ -1,5 +1,5 @@
-@use '../../styles/color-palette.scss' as *;
-@use '../../styles/mixins.scss' as *;
+@use '../../../styles/color-palette.scss' as *;
+@use '../../../styles/mixins.scss' as *;
 
 .feature-overview {
   padding-left: calc(50% - 580px);
