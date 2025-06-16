@@ -12,10 +12,10 @@ interface SliderCardProps {
 
 const SliderCard: React.FC<SliderCardProps> = ({ src, alt, title, text, className }) => {
   return (
-    <div className={`${styles.card} ${className || ''}`}>
-      <CardImage src={src} alt={alt} className={styles.image} />
-      <h4 className={styles.cardTitle}>{title}</h4>
-      <p className={styles.cardText}>{text}</p>
+    <div className={`${styles['slider-card']} ${className || ''}`}>
+      <CardImage src={src} alt={alt} className={styles['slider-card__image']} />
+      <h4 className={styles['slider-card__title']}>{title}</h4>
+      <p className={styles['slider-card__text']}>{text}</p>
     </div>
   )
 }

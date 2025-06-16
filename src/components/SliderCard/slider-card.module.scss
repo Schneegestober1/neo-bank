@@ -1,7 +1,7 @@
 @use '../../styles/color-palette.scss' as *;
 @use '../../styles/mixins.scss' as *;
 
-.card {
+.slider-card {
   width: 320px;
   min-width: 320px;
   height: 448px;
@@ -9,27 +9,27 @@
   background: $white-1;
   padding: 2rem;
   flex: 0 0 auto;
-}
 
-.image {
-  max-width: 256px;
-  width: 100%;
-  max-height: 120px;
-  height: 100%;
-}
+  &__image {
+    max-width: 256px;
+    width: 100%;
+    max-height: 120px;
+    height: 100%;
+  }
 
-.cardTitle {
-  font-weight: 500;
-  font-size: 1.25rem;
-  line-height: 25px;
-  color: $black-0;
-  text-align: center;
-}
+  &__title {
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 25px;
+    color: $black-0;
+    text-align: center;
+  }
 
-.cardText {
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 23px;
-  color: $black-0;
-  text-align: center;
+  &__text {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 23px;
+    color: $black-0;
+    text-align: center;
+  }
 }

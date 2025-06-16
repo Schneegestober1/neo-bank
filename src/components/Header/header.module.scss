@@ -9,72 +9,70 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 3px;
-}
 
-.nav {
-  order: 2;
-}
-
-.logo {
-  font-weight: 700;
-  font-size: 1.5rem;
-  letter-spacing: 2%;
-  line-height: 112%;
-  color: $logo-color;
-  cursor: pointer;
-  order: 1;
-}
-
-.menuLink {
-  font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 2%;
-  line-height: 112%;
-  color: $black-1;
-}
-
-.button {
-  width: 8rem;
-  height: 3.125rem;
-  letter-spacing: 2%;
-  line-height: 112%;
-  order: 3;
-}
-
-.menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 3.5rem;
-}
-
-@media (max-width: 920px) {
-  .header {
-    padding-left: calc(50% - 400px);
-    padding-right: calc(50% - 400px);
+  &__nav {
+    order: 2;
   }
-}
 
-@media (max-width: 500px) {
-  .header {
-    display: flex;
-    align-items: center;
-    padding: 3%;
-  }
-  .menu {
-    display: flex;
-    gap: 2rem;
-  }
-  .logo {
+  &__logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 2%;
+    line-height: 112%;
+    color: $logo-color;
+    cursor: pointer;
     order: 1;
   }
-  .nav {
+
+  &__menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 3.5rem;
+  }
+
+  &__menu-link {
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 2%;
+    line-height: 112%;
+    color: $black-1;
+  }
+
+  &__button {
+    width: 8rem;
+    height: 3.125rem;
+    letter-spacing: 2%;
+    line-height: 112%;
     order: 3;
   }
 
-  .button {
-    width: 7rem;
-    height: 3rem;
-    order: 2;
+  @media (max-width: 920px) {
+    padding-left: calc(50% - 400px);
+    padding-right: calc(50% - 400px);
+  }
+
+  @media (max-width: 500px) {
+    display: flex;
+    align-items: center;
+    padding: 3%;
+
+    &__menu {
+      gap: 2rem;
+    }
+
+    &__logo {
+      order: 1;
+    }
+
+    &__nav {
+      order: 3;
+    }
+
+    &__button {
+      width: 7rem;
+      height: 3rem;
+      order: 2;
+    }
   }
 }

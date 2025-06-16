@@ -6,11 +6,7 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles['footer__wrapper']}>
         <address className={styles['footer__contacts']}>
-          <CardImage
-            src="/footer-icon.png"
-            alt="footer-icon"
-            className={styles['footer__img']}
-          />
+          <CardImage src="/footer-icon.png" alt="footer-icon" className={styles['footer__img']} />
           <div className={styles['footer__contact-info']}>
             <a className={styles['footer__tel']} href="tel:+74959842513">
               +7 (495) 984 25 13
@@ -21,20 +17,35 @@ const Footer = () => {
           </div>
         </address>
 
-        <nav
-          className={styles['footer__navigation']}
-          aria-label="Footer navigation"
-        >
+        <nav className={styles['footer__navigation']} aria-label="Footer navigation">
           <ul className={styles['footer__nav-list']}>
-            <li><a href="">About bank</a></li>
-            <li><a href="">Ask a Question</a></li>
-            <li><a href="">Quality of service</a></li>
-            <li><a href="">Requisites</a></li>
-            <li><a href="">Bank career</a></li>
-            <li><a href="">Investors</a></li>
-            <li><a href="">Analytics</a></li>
-            <li><a href="">Business and processes</a></li>
-            <li><a href="">Compliance and business ethics</a></li>
+            <li>
+              <a href="">About bank</a>
+            </li>
+            <li>
+              <a href="">Ask a Question</a>
+            </li>
+            <li>
+              <a href="">Quality of service</a>
+            </li>
+            <li>
+              <a href="">Requisites</a>
+            </li>
+            <li>
+              <a href="">Bank career</a>
+            </li>
+            <li>
+              <a href="">Investors</a>
+            </li>
+            <li>
+              <a href="">Analytics</a>
+            </li>
+            <li>
+              <a href="">Business and processes</a>
+            </li>
+            <li>
+              <a href="">Compliance and business ethics</a>
+            </li>
           </ul>
         </nav>
       </div>
