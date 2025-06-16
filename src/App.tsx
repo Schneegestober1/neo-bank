@@ -3,7 +3,6 @@ import './App.scss'
 import Header from './components/layout/Header/Header'
 import Footer from './components/layout/Footer/Footer'
 
-
 function App() {
   return (
     <div className="app-container">
@@ -11,7 +10,7 @@ function App() {
       <main className="app-main">
         <Outlet />
       </main>
-      <Footer/>
+      <Footer />
     </div>
   )
 }

@@ -1,4 +1,3 @@
-
 import Button from '../../shared/Button/Button'
 import CardImage from '../../shared/CardImage/CardImage'
 import styles from './card-promo-title.module.scss'

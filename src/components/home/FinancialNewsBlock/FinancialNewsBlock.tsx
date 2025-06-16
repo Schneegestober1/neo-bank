@@ -1,9 +1,10 @@
 import { useRef } from 'react'
 import styles from './financial-news-block.module.scss'
-import ArrowLeftIcon from '../../assets/icons/ArrowLeft'
-import ArrowRightIcon from '../../assets/icons/ArrowRight'
-import SliderCard from '../shared/SliderCard/SliderCard'
+
 import { newsCardsData } from './data/newsCardsData'
+import SliderCard from '../../shared/SliderCard/SliderCard'
+import ArrowLeftIcon from '../../../assets/icons/ArrowLeft'
+import ArrowRightIcon from '../../../assets/icons/ArrowRight'
 
 function FinancialNewsBlock() {
   const sliderRef = useRef<HTMLDivElement>(null)

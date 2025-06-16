@@ -1,4 +1,3 @@
-
 import EnvelopeIcon from '../../../assets/icons/EnvelopeIcon'
 import PlaneIcon from '../../../assets/icons/PlaneIcon'
 import styles from './support-newsletter-signup.module.scss'
