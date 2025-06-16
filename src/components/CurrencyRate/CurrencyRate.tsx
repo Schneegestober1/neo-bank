@@ -1,5 +1,5 @@
 import BankIcon from '../../assets/icons/BankIcon'
-import { CurrencyItem } from '../CurrencyItem/CurrencyItem'
+import { CurrencyItem } from '../shared/CurrencyItem/CurrencyItem'
 import styles from './currency-rate.module.scss'
 
 const CurrencyRate = () => {

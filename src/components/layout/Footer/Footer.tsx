@@ -1,4 +1,4 @@
-import CardImage from '../../CardImage/CardImage'
+import CardImage from '../../shared/CardImage/CardImage'
 import styles from './Footer.module.scss'
 
 

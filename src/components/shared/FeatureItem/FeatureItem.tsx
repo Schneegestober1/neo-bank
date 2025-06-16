@@ -1,6 +1,6 @@
 import { type FC, type ReactNode } from 'react'
 import styles from './feature-item.module.scss'
-import CheckMarkIcon from '../../assets/icons/CheckMarkIcon'
+import CheckMarkIcon from '../../../assets/icons/CheckMarkIcon'
 
 interface FeatureItemProps {
   children: ReactNode
