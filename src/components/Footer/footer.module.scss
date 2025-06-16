@@ -106,8 +106,13 @@
       padding-bottom: 72px;
     }
 
-       &__tel {
+    &__tel {
       font-size: 1rem;
+    }
+
+    &__img {
+          height: 5rem !important;
+          width: auto !important;
     }
   }
 }
