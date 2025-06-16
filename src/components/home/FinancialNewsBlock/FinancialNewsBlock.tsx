@@ -1,26 +1,14 @@
 import { useRef } from 'react'
 import styles from './financial-news-block.module.scss'
-
 import { newsCardsData } from './data/newsCardsData'
 import SliderCard from '../../shared/SliderCard/SliderCard'
 import ArrowLeftIcon from '../../../assets/icons/ArrowLeft'
 import ArrowRightIcon from '../../../assets/icons/ArrowRight'
+import { useSliderControls } from '../../hooks/useSliderControls'
 
 function FinancialNewsBlock() {
   const sliderRef = useRef<HTMLDivElement>(null)
-  const scrollAmount = 340
-
-  const handleNext = () => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollLeft += scrollAmount
-    }
-  }
-
-  const handlePrev = () => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollLeft -= scrollAmount
-    }
-  }
+  const { scrollNext, scrollToStart } = useSliderControls(sliderRef)
 
   return (
     <section className={styles['financial-news-block']}>
@@ -51,14 +39,14 @@ function FinancialNewsBlock() {
           <button
             aria-label="Previous"
             className={styles['financial-news-block__button']}
-            onClick={handlePrev}
+            onClick={scrollToStart}
           >
             <ArrowLeftIcon className={styles['financial-news-block__icon']} />
           </button>
           <button
             aria-label="Next"
             className={styles['financial-news-block__button']}
-            onClick={handleNext}
+            onClick={scrollNext}
           >
             <ArrowRightIcon className={styles['financial-news-block__icon']} />
           </button>
