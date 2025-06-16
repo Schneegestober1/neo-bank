@@ -1,10 +1,10 @@
 
 import FeatureOverview from '../../components/FeatureOverview/FeatureOverview'
-import GlobalAvailability from '../../components/GlobalAvailability/GlobalAvailability'
 import FinancialNewsBlock from '../../components/FinancialNewsBlock/FinancialNewsBlock'
-import SupportNewsletterSignup from '../../components/SupportNewsletterSignup/SupportNewsletterSignup'
 import CardPromoTitle from '../../components/home/CardPromoTitle/CardPromoTitle'
 import CurrencyRate from '../../components/home/CurrencyRate/CurrencyRate'
+import GlobalAvailability from '../../components/home/GlobalAvailability/GlobalAvailability'
+import SupportNewsletterSignup from '../../components/home/SupportNewsletterSignup/SupportNewsletterSignup'
 
 const Home = () => {
   return (

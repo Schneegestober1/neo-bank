@@ -1,4 +1,4 @@
-import CardImage from '../shared/CardImage/CardImage'
+import CardImage from '../../shared/CardImage/CardImage'
 import styles from './global-availability.module.scss'
 
 function GlobalAvailability() {
