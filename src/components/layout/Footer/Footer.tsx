@@ -1,5 +1,6 @@
+import CardImage from '../../CardImage/CardImage'
 import styles from './Footer.module.scss'
-import CardImage from '../CardImage/CardImage'
+
 
 const Footer = () => {
   return (
