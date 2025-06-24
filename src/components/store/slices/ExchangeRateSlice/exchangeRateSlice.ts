@@ -35,11 +35,21 @@ export const fetchExchangeRate = createAsyncThunk('exchangeRate/fetchExchangeRat
     },
   })
 
+  const originalData = response.data.data as CurrencyData
+
+  const invertedData: CurrencyData = {}
+
+  for(const [currency, rate] of Object.entries(originalData) ) {
+    if(rate > 0) {
+      invertedData[currency] = 1/rate
+    }
+  }
+
   const timeStamp = Date.now()
   localStorage.setItem(TIME_KEY, timeStamp.toString())
 
   return {
-    data: response.data.data as CurrencyData,
+    data: invertedData,
     lastUpdate: timeStamp,
   }
 })
