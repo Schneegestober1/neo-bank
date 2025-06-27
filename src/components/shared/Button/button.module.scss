@@ -1,0 +1,13 @@
+@use '../../../styles/color-palette.scss' as *;
+
+.button {
+  border: 0;
+  outline: 0;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: $white-1;
+  background: $blue-1;
+  cursor: pointer;
+}

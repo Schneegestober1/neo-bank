@@ -1,25 +1,17 @@
+import { Outlet } from 'react-router-dom'
 import './App.scss'
-import CardPromoTitle from './components/CardPromoTitle/CardPromoTitle'
-import CurrencyRate from './components/CurrencyRate/CurrencyRate'
-import FeatureOverview from './components/FeatureOverview/FeatureOverview'
-import FinancialNewsBlock from './components/FinancialNewsBlock/FinancialNewsBlock'
-import Footer from './components/Footer/Footer'
-import GlobalAvailability from './components/GlobalAvailability/GlobalAvailability'
-import Header from './components/Header/Header'
-import SupportNewsletterSignup from './components/SupportNewsletterSignup/SupportNewsletterSignup'
+import Header from './components/layout/Header/Header'
+import Footer from './components/layout/Footer/Footer'
 
 function App() {
   return (
-    <>
+    <div className="app-container">
       <Header />
-      <CardPromoTitle />
-      <FeatureOverview />
-      <CurrencyRate />
-      <GlobalAvailability />
-      <FinancialNewsBlock />
-      <SupportNewsletterSignup />
+      <main className="app-main">
+        <Outlet />
+      </main>
       <Footer />
-    </>
+    </div>
   )
 }
 

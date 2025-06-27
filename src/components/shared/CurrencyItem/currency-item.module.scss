@@ -1,0 +1,28 @@
+@use '../../../styles/color-palette.scss' as *;
+@use '../../../styles/mixins.scss' as *;
+
+.currency {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 112%;
+  letter-spacing: 2%;
+  color: $gray-4;
+}
+
+.value {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 112%;
+  letter-spacing: 2%;
+  color: $black-0;
+}
+
+@media (max-width: 500px) {
+  .currency {
+    font-size: 14px;
+  }
+
+  .value {
+    font-size: 14px;
+  }
+}
