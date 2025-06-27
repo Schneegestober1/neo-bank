@@ -5,7 +5,7 @@ import ArrowLeftIcon from '../../../assets/icons/ArrowLeft'
 import ArrowRightIcon from '../../../assets/icons/ArrowRight'
 import { useSliderControls } from '../../hooks/useSliderControls'
 import { useDispatch, useSelector } from 'react-redux'
-import { AppDispatch, type RootState } from '../../store/store'
+import { type AppDispatch, type RootState } from '../../store/store'
 import { fetchNews } from '../../store/slices/newsBlock/newsThunks'
 
 function FinancialNewsBlock() {
