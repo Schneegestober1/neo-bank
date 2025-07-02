@@ -35,7 +35,9 @@
     line-height: 112%;
     letter-spacing: 2%;
     color: $black-5;
-    margin-bottom: 2rem;
+    &:nth-of-type(2) {
+      margin-bottom: 2rem;
+    }
   }
   &__features {
     display: grid;
@@ -64,5 +66,49 @@
     width: 23.75rem;
     height: 14.125rem;
     border-radius: 20px;
+  }
+
+  @media (min-width: 500px) and (max-width: 920px) {
+    padding-left: 3%;
+    padding-right: 3%;
+    &__container {
+      gap: 1.5rem;
+      padding: 3rem 1rem 3rem 1rem;
+    }
+    &__image {
+      width: 13.75rem;
+      height: 8.375rem;
+    }
+    &__features {
+      margin-bottom: 1rem;
+    }
+  }
+  @media (max-width: 500px) {
+    padding-left: 1%;
+    padding-right: 1%;
+    &__container {
+      gap: 1.5rem;
+      padding: 3rem 1rem 3rem 1rem;
+    }
+    &__image {
+      width: 10rem;
+      height: 7rem;
+    }
+    &__features {
+      gap: 1rem;
+    }
+    &__title {
+      font-size: 2rem;
+    }
+    &__description {
+      font-size: 0.8rem;
+      margin-bottom: 5px;
+    }
+    &__feature-value {
+      font-size: 0.8em;
+    }
+    &__feature-label {
+      font-size: 0.6rem;
+    }
   }
 }

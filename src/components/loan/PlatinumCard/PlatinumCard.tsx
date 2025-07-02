@@ -9,8 +9,10 @@ const PlatinumCard = () => {
         <div className={styles['platinum-card__box']}>
           <h2 className={styles['platinum-card__title']}>Platinum digital credit card</h2>
           <p className={styles['platinum-card__description']}>
-            Our best credit card. Suitable for everyday spending and shopping. Cash withdrawals and
-            transfers without commission and interest.
+            Our best credit card. Suitable for everyday spending and shopping.
+          </p>
+          <p className={styles['platinum-card__description']}>
+            Cash withdrawals and transfers without commission and interest.
           </p>
 
           <div className={styles['platinum-card__features']}>
