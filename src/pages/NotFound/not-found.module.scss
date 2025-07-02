@@ -1,0 +1,12 @@
+.not-found {
+  padding-left: calc(50% - 580px);
+  padding-right: calc(50% - 580px);
+  @media (min-width: 500px) and (max-width: 920px) {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
+  @media (min-width: 320px) and (max-width: 500px) {
+    padding: 3%;
+  }
+}

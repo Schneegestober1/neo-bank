@@ -3,15 +3,17 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
+import Home from './pages/HomePage/Home'
+import NotFound from './pages/NotFound/NotFound'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-  },
-  {
-    path: '*',
-    element: <div>404 - Page Not Found</div>,
+    children: [
+      { index: true, element: <Home /> },
+      { path: '*', element: <NotFound /> },
+    ],
   },
 ])
 

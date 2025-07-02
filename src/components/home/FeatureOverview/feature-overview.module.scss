@@ -1,0 +1,62 @@
+@use '../../../styles/color-palette.scss' as *;
+@use '../../../styles/mixins.scss' as *;
+
+.feature-overview {
+  padding-left: calc(50% - 580px);
+  padding-right: calc(50% - 580px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3.125rem;
+  margin-top: 7rem;
+
+  &__image {
+    width: 31.75rem;
+    height: 25.875rem;
+  }
+
+  &__title {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 50px;
+    color: $black-3;
+    margin-bottom: 1.25rem;
+  }
+
+  &__description {
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 30px;
+    font-family: 'Rubik', sans-serif;
+    color: $gray-1;
+    margin-bottom: 1.5625rem;
+  }
+
+  @media (max-width: 920px) {
+    padding-left: calc(50% - 400px);
+    padding-right: calc(50% - 400px);
+
+    &__image {
+      width: 20.75rem;
+      height: 17.875rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-top: 4rem;
+
+    &__title {
+      font-size: 1.5rem;
+      line-height: 40px;
+      margin-bottom: 0.5rem;
+    }
+
+    &__image {
+      width: 7.75rem;
+      height: 6.875rem;
+    }
+  }
+}
