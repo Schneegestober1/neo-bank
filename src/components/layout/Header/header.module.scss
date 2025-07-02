@@ -44,6 +44,10 @@ ul {
     color: $black-1;
   }
 
+  .active {
+    color: #b2a35f;
+  }
+
   &__button {
     width: 8rem;
     height: 3.125rem;
