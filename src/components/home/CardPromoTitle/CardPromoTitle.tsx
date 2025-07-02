@@ -14,22 +14,22 @@ export const CardPromoTitle = () => {
       <div className={styles['card-promo__images']}>
         <CardImage
           src="cardImage1.jpg"
-          alt="Card design 1"
+          alt="Card-design-1"
           className={styles['card-promo__image']}
         />
         <CardImage
           src="cardImage2.jpg"
-          alt="Card design 2"
+          alt="Card-design-2"
           className={styles['card-promo__image']}
         />
         <CardImage
           src="cardImage3.jpg"
-          alt="Card design 3"
+          alt="Card-design-3"
           className={styles['card-promo__image']}
         />
         <CardImage
           src="cardImage4.jpg"
-          alt="Card design 4"
+          alt="Card-design-4"
           className={styles['card-promo__image']}
         />
       </div>

@@ -1,4 +1,5 @@
 import Button from '../../shared/Button/Button'
+import CardImage from '../../shared/CardImage/CardImage'
 import styles from '../PlatinumCard/platinum-card.module.scss'
 
 const PlatinumCard = () => {
@@ -30,7 +31,7 @@ const PlatinumCard = () => {
       </div>
 
       <div className={styles['platinum-card__image']}>
-        <img src="" alt="" />
+        <CardImage src='cardImage1.jpg' alt='Card-design-1'  />
       </div>
     </div>
   )
