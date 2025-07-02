@@ -1,7 +1,7 @@
-import styles from './loan-page.module.scss'
+import PlatinumCard from '../../components/loan/PlatinumCard/PlatinumCard'
 
 function LoanPage() {
-  return <div className={styles['loan']}>Loan Page</div>
+  return <PlatinumCard />
 }
 
 export default LoanPage

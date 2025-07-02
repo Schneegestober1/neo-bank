@@ -1,0 +1,40 @@
+@use '../../../styles/color-palette.scss' as *;
+@use '../../../styles/mixins.scss' as *;
+
+.platinum-card {
+  padding-left: calc(50% - 580px);
+  padding-right: calc(50% - 580px);
+
+  &__title {
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 100%;
+    letter-spacing: 2%;
+    color: $white-1;
+  }
+  &__description {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 112%;
+    letter-spacing: 2%;
+    color: $black-5;
+  }
+  &__feature-value {
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 112%;
+    letter-spacing: 2%;
+    color: $black-8;
+  }
+  &__feature-label {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 112%;
+    letter-spacing: 2%;
+    color: $black-8;
+  }
+  &__button {
+    border-radius: 8px;
+    padding: 1rem;
+  }
+}
