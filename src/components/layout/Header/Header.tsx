@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom'
 import Button from '../../shared/Button/Button'
 import styles from './header.module.scss'
 
 export const Header = () => {
   return (
     <header className={styles['header']}>
-      <h2 className={styles['header__logo']}>NeoBank</h2>
+      <Link to="/" className={styles['header__logo']}>NeoBank</Link>
 
       <nav className={styles['header__nav']}>
         <ul className={styles['header__menu']}>
