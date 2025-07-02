@@ -1,16 +1,30 @@
+import { useDispatch, useSelector } from 'react-redux'
 import BankIcon from '../../../assets/icons/BankIcon'
 import { CurrencyItem } from '../../shared/CurrencyItem/CurrencyItem'
 import styles from './currency-rate.module.scss'
+import { useEffect } from 'react'
+import type { AppDispatch } from '../../store/store'
+import { fetchExchangeRate } from '../../store/slices/exchangeRate/exchangedRateThunks'
+import { selectExchangeRateFormatted } from '../../store/slices/exchangeRate/exchangeRateSelectors'
 
 const CurrencyRate = () => {
-  const currencies = [
-    { code: 'USD', value: '92.45 ₽' },
-    { code: 'EUR', value: '98.22 ₽' },
-    { code: 'CNY', value: '12.74 ₽' },
-    { code: 'GBP', value: '115.30 ₽' },
-    { code: 'JPY', value: '0.65 ₽' },
-    { code: 'KZT', value: '0.20 ₽' },
-  ]
+  const dispatch = useDispatch<AppDispatch>()
+  const { data, formattedLastUpdate, status } = useSelector(selectExchangeRateFormatted)
+
+  useEffect(() => {
+    if (status === 'idle') {
+      dispatch(fetchExchangeRate())
+    }
+  }, [dispatch, status])
+
+  const displayCurrencies = ['USD', 'EUR', 'CNY', 'JPY', 'CAD', 'CHF']
+
+  const currencies = data
+    ? displayCurrencies.map((code) => ({
+        code,
+        value: `${data[code]?.toFixed(2) ?? '-'} ₽`,
+      }))
+    : []
 
   return (
     <section className={styles['currency-rate']}>
@@ -18,7 +32,9 @@ const CurrencyRate = () => {
         <div className={styles['currency-rate__header']}>
           <p className={styles['currency-rate__title']}>Exchange rate in internet bank</p>
           <p className={styles['currency-rate__update-info']}>
-            <time dateTime="29.08.2022">Update every 15 minutes, MSC 09.08.2022</time>
+            <time>
+              Update every 15 minutes {formattedLastUpdate ? `, ${formattedLastUpdate}` : ''}
+            </time>
           </p>
         </div>
 
