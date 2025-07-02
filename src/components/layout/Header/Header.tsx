@@ -10,9 +10,9 @@ export const Header = () => {
       <nav className={styles['header__nav']}>
         <ul className={styles['header__menu']}>
           <li className={styles['header__menu-item']}>
-            <a href="#" className={styles['header__menu-link']}>
+            <Link to='loan' className={styles['header__menu-link']}>
               Credit card
-            </a>
+            </Link>
           </li>
           <li className={styles['header__menu-item']}>
             <a href="#" className={styles['header__menu-link']}>

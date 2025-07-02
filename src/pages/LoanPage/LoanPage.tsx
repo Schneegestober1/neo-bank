@@ -2,7 +2,7 @@ import styles from './loan-page.module.scss'
 
 function LoanPage() {
   return (
-    <div className={styles['not-found']}>
+    <div className={styles['loan']}>
       Loan Page
     </div>
   )
