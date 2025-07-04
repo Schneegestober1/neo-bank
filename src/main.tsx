@@ -10,6 +10,8 @@ import { store } from './components/store/store'
 import LoanPage from './pages/LoanPage/LoanPage'
 import AboutCardBlock from './components/loan/AboutCardBlock/AboutCardBlock'
 import RatesBlock from './components/loan/RatesBlock/RatesBlock'
+import CashbackBlock from './components/loan/CashbackBlock/CashbackBlock'
+import FaqBlock from './components/loan/FaqBlock/FaqBlock'
 
 const router = createBrowserRouter([
   {
@@ -25,8 +27,8 @@ const router = createBrowserRouter([
           { index: true, element: <AboutCardBlock /> },
           { path: 'about', element: <AboutCardBlock /> },
           { path: 'rate', element: <RatesBlock /> },
-          { path: 'cashback', element: <RatesBlock /> },
-          { path: 'faq', element: <RatesBlock /> },
+          { path: 'cashback', element: <CashbackBlock /> },
+          { path: 'faq', element: <FaqBlock /> },
         ],
       },
     ],
