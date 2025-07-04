@@ -1,41 +1,66 @@
-import CreditCardBenefitCard from '../../shared/CreditCardBenefitCard/CreditCardBenefitCard'
+import { NavLink, Outlet } from 'react-router-dom'
 import styles from '../CreditCardBenefits/credit-card-benefits.module.scss'
-import { benefitsData } from './data/benefitsData'
 
 const CreditCardBenefits = () => {
   return (
-    <div className={styles['credit-card-benefits']}>
-      <nav className={styles['credit-card-benefits__nav']}>
-        <ul className={styles['credit-card-benefits__nav-list']}>
-          <li className={styles['credit-card-benefits__nav-item']}>
-            <a href="" className={styles['credit-card-benefits__nav-link']}>
+    <div className={styles['loan-page']}>
+      <nav className={styles['loan-page__nav']}>
+        <ul className={styles['loan-page__nav-list']}>
+          <li className={styles['loan-page__nav-item']}>
+            <NavLink
+              to="about"
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles['loan-page__nav-link']} ${styles[`active`]}`
+                  : styles['loan-page__nav-link']
+              }
+            >
               About card
-            </a>
+            </NavLink>
           </li>
-          <li className={styles['credit-card-benefits__nav-item']}>
-            <a href="" className={styles['credit-card-benefits__nav-link']}>
+          <li className={styles['loan-page__nav-item']}>
+            <NavLink
+              to="rate"
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles['loan-page__nav-link']} ${styles[`active`]}`
+                  : styles['loan-page__nav-link']
+              }
+            >
               Rates and conditions
-            </a>
+            </NavLink>
           </li>
-          <li className={styles['credit-card-benefits__nav-item']}>
-            <a href="" className={styles['credit-card-benefits__nav-link']}>
+          <li className={styles['loan-page__nav-item']}>
+            <NavLink
+              to="cashback"
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles['loan-page__nav-link']} ${styles[`active`]}`
+                  : styles['loan-page__nav-link']
+              }
+            >
               Cashback
-            </a>
+            </NavLink>
           </li>
-          <li className={styles['credit-card-benefits__nav-item']}>
-            <a href="" className={styles['credit-card-benefits__nav-link']}>
+          <li className={styles['loan-page__nav-item']}>
+            <NavLink
+              to="faq"
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles['loan-page__nav-link']} ${styles[`active`]}`
+                  : styles['loan-page__nav-link']
+              }
+            >
               FAQ
-            </a>
+            </NavLink>
           </li>
         </ul>
       </nav>
 
-      <div className={styles['credit-card-benefits__line']}></div>
+      <div className={styles['loan-page__line']}></div>
 
-      <div className={styles['credit-card-benefits__cards']}>
-        {benefitsData.map(({ icon, title, text }, index) => (
-          <CreditCardBenefitCard key={index} icon={icon} title={title} text={text} />
-        ))}
+      <div className={styles['loan-page__content']}>
+        <Outlet />
       </div>
     </div>
   )

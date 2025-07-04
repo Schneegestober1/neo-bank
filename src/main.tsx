@@ -8,6 +8,8 @@ import NotFound from './pages/NotFound/NotFound'
 import { Provider } from 'react-redux'
 import { store } from './components/store/store'
 import LoanPage from './pages/LoanPage/LoanPage'
+import AboutCardBlock from './components/loan/AboutCardBlock/AboutCardBlock'
+import RatesBlock from './components/loan/RatesBlock/RatesBlock'
 
 const router = createBrowserRouter([
   {
@@ -16,7 +18,17 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: '*', element: <NotFound /> },
-      { path: 'loan', element: <LoanPage /> },
+      {
+        path: 'loan',
+        element: <LoanPage />,
+        children: [
+          { index: true, element: <AboutCardBlock /> },
+          { path: 'about', element: <AboutCardBlock /> },
+          { path: 'rate', element: <RatesBlock /> },
+          { path: 'cashback', element: <RatesBlock /> },
+          { path: 'faq', element: <RatesBlock /> },
+        ],
+      },
     ],
   },
 ])
