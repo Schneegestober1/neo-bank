@@ -4,6 +4,7 @@
 .credit-card-benefits {
   padding-left: calc(50% - 580px);
   padding-right: calc(50% - 580px);
+  margin-bottom: 6rem;
 
   &__nav-list {
     max-width: 447px;
@@ -27,5 +28,49 @@
     height: 2px;
     background-color: rgba(128, 128, 128, 0.2);
     margin-top: 0.5rem;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 40px;
+    margin-top: 3.0625rem;
+  }
+
+  &__card {
+    padding: 2rem 2rem 2rem 2rem;
+    background: $gray-7;
+    border-radius: 28px;
+  }
+
+  &__card:nth-child(-n + 3) {
+    grid-column: span 2;
+  }
+
+  &__card:nth-child(n + 4) {
+    grid-column: span 3;
+  }
+
+  &__icon {
+    max-width: 40px;
+    width: 100%;
+    max-height: 40px;
+    height: 100%;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 147%;
+    color: $black-0;
+    margin-top: 0.5rem;
+  }
+  
+  &__text {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 100%;
+    color: $black-0;
+    margin-top: 1rem;
   }
 }
