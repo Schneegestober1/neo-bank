@@ -1,0 +1,50 @@
+@use '../../../styles/color-palette.scss' as *;
+@use '../../../styles/mixins.scss' as *;
+
+.credit-card-benefits {
+  &__card {
+    padding: 2rem 2rem 2rem 2rem;
+    background: $gray-7;
+    border-radius: 28px;
+    box-shadow:
+      0 2px 4px 0 rgba(0, 0, 0, 0.2),
+      0 2px 8px 0 rgba(0, 0, 0, 0.08);
+  }
+
+  &__card:nth-child(-n + 3) {
+    grid-column: span 2;
+  }
+
+  &__card:nth-child(n + 4) {
+    grid-column: span 3;
+  }
+  &__card:nth-child(odd) {
+    background: $gray-7;
+  }
+
+  &__card:nth-child(even) {
+    background: $gray-8;
+  }
+  &__icon {
+    max-width: 40px;
+    width: 100%;
+    max-height: 40px;
+    height: 100%;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 147%;
+    color: $black-0;
+    margin-top: 0.5rem;
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 100%;
+    color: $black-0;
+    margin-top: 1rem;
+  }
+}
