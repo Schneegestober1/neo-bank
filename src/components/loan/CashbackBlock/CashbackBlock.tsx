@@ -22,8 +22,7 @@ const CashbackBlock = () => {
       />
       <CreditCardBenefitCard
         className={`${styles['cashback-block__card']} ${cardStyles['credit-card-benefits__card--cashback']}`}
-        title="Other purchases and payment of services and
-fines"
+        title="Other purchases and payment of services and fines"
         text="1%"
       />
       <CreditCardBenefitCard
