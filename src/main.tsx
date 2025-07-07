@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import App from './App'
 import Home from './pages/HomePage/Home'
 import NotFound from './pages/NotFound/NotFound'
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         path: 'loan',
         element: <LoanPage />,
         children: [
-          { index: true, element: <AboutCardBlock /> },
+          { index: true, element: <Navigate to="about" replace /> },
           { path: 'about', element: <AboutCardBlock /> },
           { path: 'rate', element: <RatesBlock /> },
           { path: 'cashback', element: <CashbackBlock /> },

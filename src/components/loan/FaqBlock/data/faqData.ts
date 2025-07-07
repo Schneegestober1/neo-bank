@@ -1,4 +1,4 @@
-import type { FaqItem } from "../FaqItemTypes"
+import type { FaqItem } from '../FaqItemTypes'
 
 export const issuingFaq: FaqItem[] = [
   {
