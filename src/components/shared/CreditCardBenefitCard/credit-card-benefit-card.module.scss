@@ -25,6 +25,23 @@
   &__card:nth-child(even) {
     background: $gray-8;
   }
+  // for cashbackblock
+  &__card--cashback {
+    .credit-card-benefits__title {
+      font-weight: 500;
+      font-size: 1rem;
+      line-height: 147%;
+      color: rgba(67, 67, 67, 0.9);
+    }
+
+    .credit-card-benefits__text {
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 147%;
+      color: $black-0;
+    }
+  }
+  //
   &__icon {
     max-width: 40px;
     width: 100%;

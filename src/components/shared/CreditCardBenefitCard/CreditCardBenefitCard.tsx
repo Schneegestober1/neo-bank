@@ -17,8 +17,8 @@ const CreditCardBenefitCard: React.FC<CreditCardBenefitCardProps> = ({
   return (
     <div className={`${styles['credit-card-benefits__card']} ${className ?? ''}`}>
       {icon && <div className={styles['credit-card-benefits__icon']}>{icon}</div>}
-      <h3 className={styles['credit-card-benefits__title']}>{title}</h3>
-      <p className={styles['credit-card-benefits__text']}>{text}</p>
+      <h3 className={`${styles['credit-card-benefits__title']}`}>{title}</h3>
+      <p className={`${styles['credit-card-benefits__text']}`}>{text}</p>
     </div>
   )
 }
