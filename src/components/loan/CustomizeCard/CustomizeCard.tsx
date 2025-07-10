@@ -1,3 +1,4 @@
+import FormInput from '../../shared/FormInput/FormInput'
 import styles from './customize-card.module.scss'
 
 const CustomizeCard = () => {
@@ -32,79 +33,59 @@ const CustomizeCard = () => {
       <form className={styles['customize-card__form']}>
         <h3 className={styles['customize-card__form-title']}>Contact Information</h3>
         <div className={styles['customize-card__grid']}>
-          <label className={styles['customize-card__label']}>
-            Your last name <span className={styles['customize-card__required']}>*</span>
-            <input
-              className={styles['customize-card__input']}
-              type="text"
-              placeholder="For Example Doe"
-              required
-            />
-          </label>
+          <FormInput
+            label="Your last name"
+            name="lastName"
+            placeholder="For Example Doe"
+            required
+          />
 
-          <label className={styles['customize-card__label']}>
-            Your first name <span className={styles['customize-card__required']}>*</span>
-            <input
-              className={styles['customize-card__input']}
-              type="text"
-              placeholder="For Example Jhon"
-              required
-            />
-          </label>
+          <FormInput
+            label="Your first name"
+            name="firstName"
+            placeholder="For Example John"
+            required
+          />
 
-          <label className={styles['customize-card__label']}>
-            Your patronymic
-            <input
-              className={styles['customize-card__input']}
-              type="text"
-              placeholder="For Example Victorovich"
-            />
-          </label>
+          <FormInput
+            label="Your patronymic"
+            name="patronymic"
+            placeholder="For Example Victorovich"
+          />
 
-          <label className={styles['customize-card__label']}>
-            Select term <span className={styles['customize-card__required']}>*</span>
-            <select className={styles['customize-card__select']} required>
-              <option>6 month</option>
-              <option>12 month</option>
-            </select>
-          </label>
+          <FormInput
+            label="Your email"
+            name="email"
+            type="email"
+            placeholder="test@gmail.com"
+            required
+          />
 
-          <label className={styles['customize-card__label']}>
-            Your email <span className={styles['customize-card__required']}>*</span>
-            <input
-              className={styles['customize-card__input']}
-              type="email"
-              placeholder="test@gmail.com"
-              required
-            />
-          </label>
+          <FormInput label="Your date of birth" name="birthDate" type="date" required />
 
-          <label className={styles['customize-card__label']}>
-            Your date of birth <span className={styles['customize-card__required']}>*</span>
-            <input className={styles['customize-card__input']} type="date" required />
-          </label>
+          <FormInput
+            label="Your passport series"
+            name="passportSeries"
+            placeholder="0000"
+            maxLength={4}
+            required
+          />
 
-          <label className={styles['customize-card__label']}>
-            Your passport series <span className={styles['customize-card__required']}>*</span>
-            <input
-              className={styles['customize-card__input']}
-              type="text"
-              placeholder="0000"
-              required
-              maxLength={4}
-            />
-          </label>
+          <FormInput
+            label="Select term"
+            name="term"
+            type="select"
+            required
+            options={['6 months', '12 months']}
+          />
 
-          <label className={styles['customize-card__label']}>
-            Your passport number <span className={styles['customize-card__required']}>*</span>
-            <input
-              className={styles['customize-card__input']}
-              type="text"
-              placeholder="000000"
-              required
-              maxLength={6}
-            />
-          </label>
+          <FormInput
+            label="Your passport number"
+            name="passportNumber"
+            placeholder="000000"
+            maxLength={6}
+            required
+          />
         </div>
 
         <button type="submit" className={styles['customize-card__btn-submit']}>

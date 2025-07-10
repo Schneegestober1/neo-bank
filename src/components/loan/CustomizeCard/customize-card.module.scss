@@ -42,12 +42,12 @@
   &__form-title {
     @extend .customize-card__chosen-title;
   }
-  &__label {
-    @extend .customize-card__step;
-    color: $black-9;
-  }
-  &__required {
-    @extend .customize-card__step;
-    color: $red-1;
-  }
+  // &__label {
+  //   @extend .customize-card__step;
+  //   color: $black-9;
+  // }
+  // &__required {
+  //   @extend .customize-card__step;
+  //   color: $red-1;
+  // }
 }
