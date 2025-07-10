@@ -66,6 +66,10 @@
     width: 23.75rem;
     height: 14.125rem;
     border-radius: 20px;
+    transition: transform 0.4s ease;
+    &--rotate {
+      transform: rotate(10deg);
+    }
   }
 
   @media (min-width: 500px) and (max-width: 920px) {

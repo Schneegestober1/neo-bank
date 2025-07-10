@@ -1,8 +1,14 @@
+import { useLocation } from 'react-router-dom'
 import Button from '../../shared/Button/Button'
 import CardImage from '../../shared/CardImage/CardImage'
 import styles from '../PlatinumCard/platinum-card.module.scss'
 
 const PlatinumCard = () => {
+  const location = useLocation()
+
+  const shouldRotate = ['/rate', '/cashback', '/faq'].some((path) =>
+    location.pathname.endsWith(path)
+  )
   return (
     <div className={styles['platinum-card']}>
       <div className={styles['platinum-card__container']}>
@@ -37,7 +43,7 @@ const PlatinumCard = () => {
 
         <div className={styles['platinum-card__image-box']}>
           <CardImage
-            className={styles['platinum-card__image']}
+            className={`${styles['platinum-card__image']} ${shouldRotate ? styles['platinum-card__image--rotate'] : ''}`}
             src="cardImage1.jpg"
             alt="Card-design-1"
           />
