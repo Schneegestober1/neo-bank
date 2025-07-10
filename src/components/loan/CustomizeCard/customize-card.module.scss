@@ -4,6 +4,19 @@
 .customize-card {
   padding-left: calc(50% - 580px);
   padding-right: calc(50% - 580px);
+  &__container {
+    background: $white-1;
+    padding: 2rem;
+    border-radius: 28px;
+    box-shadow:
+      0 2px 4px 0 rgba(0, 0, 0, 0.2),
+      0 0 8px 0 rgba(0, 0, 0, 0.08);
+    margin-bottom: 6rem;
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+  }
   &__title {
     font-weight: 700;
     font-size: 1.875rem;
@@ -39,12 +52,23 @@
   &__chosen-sum {
     @extend .customize-card__step;
   }
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1.625rem;
+  }
   &__form-title {
     @extend .customize-card__chosen-title;
+  }
+  &__btn-box {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-top: 1.5rem;
   }
   &__btn-submit {
     border-radius: 8px;
     padding: 1rem 2rem;
   }
-
 }
