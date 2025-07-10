@@ -8,7 +8,10 @@ function HowToGetCard() {
       <div className={styles['how-to-get-card__container']}>
         <div className={styles['how-to-get-card__step']}>
           <div className={styles['how-to-get-card__step-header']}>
-            <span className={styles['how-to-get-card__step-number']}>1</span>
+            <div className={styles['how-to-get-card__step-wrapper']}>
+              <span className={styles['how-to-get-card__step-number']}>1</span>
+            </div>
+
             <div className={styles['how-to-get-card__line']}></div>
           </div>
           <p className={styles['how-to-get-card__step-description']}>
@@ -18,7 +21,9 @@ function HowToGetCard() {
 
         <div className={styles['how-to-get-card__step']}>
           <div className={styles['how-to-get-card__step-header']}>
-            <span className={styles['how-to-get-card__step-number']}>2</span>
+            <div className={styles['how-to-get-card__step-wrapper']}>
+              <span className={styles['how-to-get-card__step-number']}>2</span>
+            </div>
             <div className={styles['how-to-get-card__line']}></div>
           </div>
           <p className={styles['how-to-get-card__step-description']}>
@@ -28,14 +33,15 @@ function HowToGetCard() {
 
         <div className={styles['how-to-get-card__step']}>
           <div className={styles['how-to-get-card__step-header']}>
-            <span className={styles['how-to-get-card__step-number']}>3</span>
+            <div className={styles['how-to-get-card__step-wrapper']}>
+              <span className={styles['how-to-get-card__step-number']}>3</span>
+            </div>
             <div className={styles['how-to-get-card__line']}></div>
           </div>
           <p className={styles['how-to-get-card__step-description']}>
             The bank will deliver the card free of charge, wherever convenient, to your city
           </p>
         </div>
-
       </div>
     </section>
   )
