@@ -1,3 +1,4 @@
+import Button from '../../shared/Button/Button'
 import FormInput from '../../shared/FormInput/FormInput'
 import styles from './customize-card.module.scss'
 
@@ -88,9 +89,7 @@ const CustomizeCard = () => {
           />
         </div>
 
-        <button type="submit" className={styles['customize-card__btn-submit']}>
-          Continue
-        </button>
+        <Button className={styles['customize-card__btn-submit']}>Continue</Button>
       </form>
     </div>
   )

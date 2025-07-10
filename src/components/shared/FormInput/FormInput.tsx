@@ -31,12 +31,7 @@ const FormInput: React.FC<FormInputProps> = ({
       </div>
 
       {type === 'select' ? (
-        <select
-          id={name}
-          name={name}
-          required={required}
-          className={styles['input']} 
-        >
+        <select id={name} name={name} required={required} className={styles['input']}>
           {options.map((option) => (
             <option key={option} value={option}>
               {option}
