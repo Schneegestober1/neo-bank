@@ -1,0 +1,53 @@
+@use '../../../styles/color-palette.scss' as *;
+@use '../../../styles/mixins.scss' as *;
+
+.customize-card {
+  padding-left: calc(50% - 580px);
+  padding-right: calc(50% - 580px);
+  &__title {
+    font-weight: 700;
+    font-size: 1.875rem;
+    line-height: 100%;
+    color: $black-0;
+  }
+  &__step {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 100%;
+    color: $black-0;
+  }
+  &__label {
+    @extend .customize-card__step;
+  }
+  &__selected-amount {
+    @extend .customize-card__step;
+  }
+  &__min-amount {
+    @extend .customize-card__step;
+    color: $brown-2;
+  }
+  &__max-amount {
+    @extend .customize-card__step;
+    color: $brown-2;
+  }
+  &__chosen-title {
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 100%;
+    color: $black-0;
+  }
+  &__chosen-sum {
+    @extend .customize-card__step;
+  }
+  &__form-title {
+    @extend .customize-card__chosen-title;
+  }
+  &__label {
+    @extend .customize-card__step;
+    color: $black-9;
+  }
+  &__required {
+    @extend .customize-card__step;
+    color: $red-1;
+  }
+}
