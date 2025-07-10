@@ -1,0 +1,25 @@
+@use '../../../styles/color-palette.scss' as *;
+@use '../../../styles/mixins.scss' as *;
+
+.how-to-get-card {
+  padding-left: calc(50% - 580px);
+  padding-right: calc(50% - 580px);
+  &__title {
+    font-weight: 500;
+    font-size: 1.875rem;
+    line-height: 147%;
+    color: $black-0;
+  }
+  &__step-number {
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 147%;
+    color: $black-0;
+  }
+  &__step-description {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 147%;
+    color: $black-0;
+  }
+}

@@ -1,4 +1,5 @@
 import CreditCardBenefits from '../../components/loan/CreditCardBenefits/CreditCardBenefits'
+import HowToGetCard from '../../components/loan/HowToGetCard/HowToGetCard'
 import PlatinumCard from '../../components/loan/PlatinumCard/PlatinumCard'
 
 function LoanPage() {
@@ -6,6 +7,7 @@ function LoanPage() {
     <>
       <PlatinumCard />
       <CreditCardBenefits />
+      <HowToGetCard />
     </>
   )
 }
