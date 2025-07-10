@@ -64,6 +64,10 @@ h4 {
     @extend .customize-card__step;
     color: $brown-2;
   }
+  &__line {
+    height: 232px;
+    border-left: 1px dashed rgba(128, 128, 128, 0.4);
+  }
   &__chosen-amount {
     display: flex;
     align-items: start;

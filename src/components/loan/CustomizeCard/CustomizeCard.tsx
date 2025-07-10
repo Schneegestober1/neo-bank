@@ -28,6 +28,8 @@ const CustomizeCard = () => {
             </div>
           </div>
 
+          <div className={styles['customize-card__line']}></div>
+
           <div className={styles['customize-card__chosen-amount']}>
             <h4 className={styles['customize-card__chosen-title']}>You have chosen the amount</h4>
             <p className={styles['customize-card__chosen-sum']}>150 000 ₽</p>
