@@ -1,6 +1,11 @@
 @use '../../../styles/color-palette.scss' as *;
 @use '../../../styles/mixins.scss' as *;
 
+h4 {
+  padding: 0;
+  margin: 0;
+}
+
 .customize-card {
   padding-left: calc(50% - 580px);
   padding-right: calc(50% - 580px);
@@ -13,10 +18,26 @@
       0 0 8px 0 rgba(0, 0, 0, 0.08);
     margin-bottom: 6rem;
   }
+  &__top {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    align-items: stretch;
+    & > .customize-card__header,
+    & > .customize-card__chosen-amount {
+      flex: 1 1 50%;
+    }
+  }
   &__header {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    height: 100%;
   }
+  &__header-top {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__title {
     font-weight: 700;
     font-size: 1.875rem;
@@ -43,14 +64,27 @@
     @extend .customize-card__step;
     color: $brown-2;
   }
+  &__chosen-amount {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+  }
   &__chosen-title {
     font-weight: 700;
     font-size: 1.125rem;
     line-height: 100%;
     color: $black-0;
+    margin-bottom: 1rem;
   }
   &__chosen-sum {
     @extend .customize-card__step;
+  }
+  &__chosen-sum-line {
+    height: 1px;
+    max-width: 220px;
+    width: 100%;
+    background-color: rgba(128, 128, 128, 0.2);
+    margin-top: 0.625rem;
   }
   &__grid {
     display: grid;
