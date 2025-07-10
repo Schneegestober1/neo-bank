@@ -26,16 +26,13 @@
     transition: color 0.3s;
   }
 
-  .active {
-    color: green;
-  }
-
   &__tab-line {
     position: relative;
     height: 2px;
     background-color: rgba(128, 128, 128, 0.2);
     width: 100%;
     margin-top: 0.25rem;
+    overflow: hidden;
   }
 
   &__tab-indicator {
@@ -43,6 +40,8 @@
     bottom: 0;
     height: 2px;
     background-color: green;
-    transition: left 0.3s ease, width 0.3s ease;
+    transition:
+      left 0.3s ease,
+      width 0.3s ease;
   }
 }

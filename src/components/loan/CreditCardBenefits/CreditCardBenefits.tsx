@@ -14,7 +14,14 @@ const CreditCardBenefits = () => {
 
         if (activeLink) {
           const { offsetLeft, offsetWidth } = activeLink
-          setIndicatorStyle({ left: offsetLeft, width: offsetWidth })
+          const expandBy = 0.2
+          const newWidth = offsetWidth * (1 + expandBy)
+          const newLeft = offsetLeft - (newWidth - offsetWidth) / 2
+
+          setIndicatorStyle({
+            left: newLeft,
+            width: newWidth,
+          })
         }
       }
     }
