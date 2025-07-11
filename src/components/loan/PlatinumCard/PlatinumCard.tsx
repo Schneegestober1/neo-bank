@@ -27,15 +27,24 @@ const PlatinumCard = ({ onApplyClick }: PlatinumCardProps) => {
           </p>
 
           <div className={styles['platinum-card__features']}>
-            <div className={styles['platinum-card__feature']}>
+            <div
+              className={styles['platinum-card__feature']}
+              data-tooltip="When repaying the full debt up to 160 days."
+            >
               <span className={styles['platinum-card__feature-value']}>Up to 160 days</span>
               <p className={styles['platinum-card__feature-label']}>No percent</p>
             </div>
-            <div className={styles['platinum-card__feature']}>
+            <div
+              className={styles['platinum-card__feature']}
+              data-tooltip="Over the limit willaccrue percent"
+            >
               <span className={styles['platinum-card__feature-value']}>Up to 600 000 ₽</span>
               <p className={styles['platinum-card__feature-label']}>Credit limit</p>
             </div>
-            <div className={styles['platinum-card__feature']}>
+            <div
+              className={styles['platinum-card__feature']}
+              data-tooltip="Promotion valid until December 31, 2025."
+            >
               <span className={styles['platinum-card__feature-value']}>0 ₽</span>
               <p className={styles['platinum-card__feature-label']}>Card service is free</p>
             </div>

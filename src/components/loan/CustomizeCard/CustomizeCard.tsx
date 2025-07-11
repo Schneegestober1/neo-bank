@@ -74,7 +74,7 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
           </div>
         </div>
 
-        <form className={styles['customize-card__form']} >
+        <form className={styles['customize-card__form']}>
           <h3 className={styles['customize-card__form-title']}>Contact Information</h3>
           <div className={styles['customize-card__grid']}>
             <FormInput
@@ -99,7 +99,7 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
               name="term"
               type="select"
               required
-              options={['6 months', '12 months']}
+              options={['6 months', '12 months', '18 months', '24 months']}
             />
             <FormInput
               label="Your email"
@@ -125,7 +125,7 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
             />
           </div>
 
-          <div className={styles['customize-card__btn-box']} >
+          <div className={styles['customize-card__btn-box']}>
             <Button className={styles['customize-card__btn-submit']}>Continue</Button>
           </div>
         </form>
