@@ -3,12 +3,17 @@ import Button from '../../shared/Button/Button'
 import CardImage from '../../shared/CardImage/CardImage'
 import styles from '../PlatinumCard/platinum-card.module.scss'
 
-const PlatinumCard = () => {
+interface PlatinumCardProps {
+  onApplyClick: () => void
+}
+
+const PlatinumCard = ({ onApplyClick }: PlatinumCardProps) => {
   const location = useLocation()
 
   const shouldRotate = ['/rate', '/cashback', '/faq'].some((path) =>
     location.pathname.endsWith(path)
   )
+
   return (
     <div className={styles['platinum-card']}>
       <div className={styles['platinum-card__container']}>
@@ -37,7 +42,9 @@ const PlatinumCard = () => {
           </div>
 
           <div className={styles['platinum-card__actions']}>
-            <Button className={styles['platinum-card__button']}>Apply for card</Button>
+            <Button className={styles['platinum-card__button']} onClick={onApplyClick}>
+              Apply for card
+            </Button>
           </div>
         </div>
 
