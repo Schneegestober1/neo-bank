@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from './faq-block.module.scss'
 import { issuingFaq, usageFaq } from './data/faqData'
-import FaqItem from '../../shared/FaqBlock/FaqItem'
+import FaqItem from '../../../shared/FaqBlock/FaqItem'
 
 const FaqBlock = () => {
   const [openedIndex, setOpenedIndex] = useState<number | null>(null)

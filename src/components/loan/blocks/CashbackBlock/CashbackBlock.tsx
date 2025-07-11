@@ -1,6 +1,7 @@
-import CreditCardBenefitCard from '../../shared/CreditCardBenefitCard/CreditCardBenefitCard'
+
 import styles from '../CashbackBlock/cashback-block.module.scss'
-import cardStyles from '../../shared/CreditCardBenefitCard/credit-card-benefit-card.module.scss'
+import cardStyles from '../../../shared/CreditCardBenefitCard/credit-card-benefit-card.module.scss'
+import CreditCardBenefitCard from '../../../shared/CreditCardBenefitCard/CreditCardBenefitCard'
 
 const CashbackBlock = () => {
   return (

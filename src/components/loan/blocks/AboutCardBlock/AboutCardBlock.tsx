@@ -1,5 +1,6 @@
-import { benefitsData } from '../CreditCardBenefits/data/benefitsData'
-import CreditCardBenefitCard from '../../shared/CreditCardBenefitCard/CreditCardBenefitCard'
+
+import CreditCardBenefitCard from '../../../shared/CreditCardBenefitCard/CreditCardBenefitCard'
+import { benefitsData } from '../../CreditCardBenefits/data/benefitsData'
 import styles from '../AboutCardBlock/about-card-block.module.scss'
 
 const AboutCardBlock = () => {
