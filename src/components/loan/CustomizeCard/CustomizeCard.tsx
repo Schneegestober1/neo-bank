@@ -4,7 +4,7 @@ import FormInput from '../../shared/FormInput/FormInput'
 import styles from './customize-card.module.scss'
 
 const CustomizeCard = () => {
-  const [value, setValue] = useState(150_00)
+  const [value, setValue] = useState(150_000)
   const min = 150_000
   const max = 600_000
 
@@ -25,7 +25,7 @@ const CustomizeCard = () => {
             <div className={styles['customize-card__amount-selector']}>
               <div className={styles['customize-card__amount-labels']}>
                 <p className={styles['customize-card__label']}>Select amount</p>
-                <p className={styles['customize-card__selected-amount']}>150 000</p>
+                <p className={styles['customize-card__selected-amount']}>{value.toLocaleString('ru-RU')}</p>
               </div>
 
               <div className={styles['customize-card__slider']}>
@@ -44,8 +44,8 @@ const CustomizeCard = () => {
               </div>
 
               <div className={styles['customize-card__amount-range']}>
-                <p className={styles['customize-card__min-amount']}>15 000</p>
-                <p className={styles['customize-card__max-amount']}>600 000</p>
+                <span>{min.toLocaleString('ru-RU')}</span>
+                <span>{max.toLocaleString('ru-RU')}</span>
               </div>
             </div>
           </div>
@@ -54,7 +54,7 @@ const CustomizeCard = () => {
 
           <div className={styles['customize-card__chosen-amount']}>
             <h4 className={styles['customize-card__chosen-title']}>You have chosen the amount</h4>
-            <p className={styles['customize-card__chosen-sum']}>150 000 ₽</p>
+            <p className={styles['customize-card__chosen-sum']}>{value.toLocaleString('ru-RU')}</p>
             <div className={styles['customize-card__chosen-sum-line']}></div>
           </div>
         </div>
