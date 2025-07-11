@@ -19,13 +19,14 @@ const CustomizeCard = () => {
                 <p className={styles['customize-card__selected-amount']}>150 000</p>
               </div>
 
-              <div className={styles['customize-card__slider']}>SLider</div>
+              <div className={styles['customize-card__slider']}></div>
 
               <div className={styles['customize-card__amount-range']}>
                 <p className={styles['customize-card__min-amount']}>15 000</p>
                 <p className={styles['customize-card__max-amount']}>600 000</p>
               </div>
             </div>
+            
           </div>
 
           <div className={styles['customize-card__line']}></div>
