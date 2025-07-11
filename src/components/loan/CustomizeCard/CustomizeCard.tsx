@@ -1,8 +1,17 @@
+import { useState } from 'react'
 import Button from '../../shared/Button/Button'
 import FormInput from '../../shared/FormInput/FormInput'
 import styles from './customize-card.module.scss'
 
 const CustomizeCard = () => {
+  const [value, setValue] = useState(150_00)
+  const min = 150_000
+  const max = 600_000
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(Number(e.target.value))
+  }
+  const percent = ((value - min) / (max - min)) * 100
   return (
     <div className={styles['customize-card']}>
       <div className={styles['customize-card__container']}>
@@ -19,14 +28,26 @@ const CustomizeCard = () => {
                 <p className={styles['customize-card__selected-amount']}>150 000</p>
               </div>
 
-              <div className={styles['customize-card__slider']}></div>
+              <div className={styles['customize-card__slider']}>
+                <input
+                  type="range"
+                  min={min}
+                  max={max}
+                  step={1000}
+                  value={value}
+                  onChange={handleChange}
+                  className={styles['customize-card__range-input']}
+                  style={{
+                    background: `linear-gradient(to right, #6b38f2 0%, #6b38f2 ${percent}%, #e0e6ed ${percent}%, #e0e6ed 100%)`,
+                  }}
+                />
+              </div>
 
               <div className={styles['customize-card__amount-range']}>
                 <p className={styles['customize-card__min-amount']}>15 000</p>
                 <p className={styles['customize-card__max-amount']}>600 000</p>
               </div>
             </div>
-            
           </div>
 
           <div className={styles['customize-card__line']}></div>
