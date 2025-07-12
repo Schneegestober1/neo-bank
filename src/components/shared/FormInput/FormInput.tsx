@@ -34,34 +34,38 @@ const FormInput: React.FC<FormInputProps> = ({
         {required && <span className={styles['required']}>*</span>}
       </div>
 
-      {type === 'select' ? (
-        <select
-          id={name}
-          name={name}
-          required={required}
-          className={clsx(styles['input'], { [styles['input-error']]: error })}
-        >
-          <option value="" disabled></option>
-          {options.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
-      ) : (
-        <input
-          id={name}
-          name={name}
-          type={type}
-          placeholder={placeholder}
-          required={required}
-          maxLength={maxLength}
-          className={clsx(styles['input'], { [styles['input-error']]: error })}
-        />
-      )}
+      <div className={styles['input-wrapper']}>
+        {' '}
+        {/* новый контейнер */}
+        {type === 'select' ? (
+          <select
+            id={name}
+            name={name}
+            required={required}
+            className={clsx(styles['input'], { [styles['input-error']]: error })}
+          >
+            <option value="" disabled></option>
+            {options.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        ) : (
+          <input
+            id={name}
+            name={name}
+            type={type}
+            placeholder={placeholder}
+            required={required}
+            maxLength={maxLength}
+            className={clsx(styles['input'], { [styles['input-error']]: error })}
+          />
+        )}
+        {error && <ErrorIcon className={styles['error-icon']} />}
+      </div>
 
       {error && <span className={styles['error-message']}>{error.message}</span>}
-      {error && <ErrorIcon className={styles['error-icon']} />}
     </label>
   )
 }
