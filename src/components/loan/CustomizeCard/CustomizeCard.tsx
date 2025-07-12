@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle, useRef, useState } from 'react'
+import { forwardRef, useImperativeHandle, useRef } from 'react'
 import Button from '../../shared/Button/Button'
 import FormInput from '../../shared/FormInput/FormInput'
 import styles from './customize-card.module.scss'
@@ -6,8 +6,14 @@ import { useForm, type SubmitHandler } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import type { CustomizeCardRef, FormValues } from './CustomizeCardTypes'
 import { maxAmount, minAmount, validationSchema } from './validationSchema'
+import { useDispatch, useSelector } from 'react-redux'
+import type { AppDispatch, RootState } from '../../store/store'
+import { submitApplication } from '../../store/slices/сustomizeCard/applicationThunks'
 
 const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
+  const dispatch = useDispatch<AppDispatch>()
+  const { loading, error, success } = useSelector((state: RootState) => state.application)
+
   const {
     register,
     handleSubmit,
@@ -23,7 +29,6 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
 
   const watchedFields = watch()
   const formRef = useRef<HTMLDivElement>(null)
-  const [isLoading, setIsLoading] = useState(false)
 
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = Number(e.target.value)
@@ -37,10 +42,8 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
 
   const handleInputBlur = () => {
     let numVal = Number(watchedFields.amount)
-
     if (!numVal || numVal < minAmount) numVal = minAmount
     if (numVal > maxAmount) numVal = maxAmount
-
     setValue('amount', numVal, { shouldValidate: true, shouldDirty: true })
   }
 
@@ -59,41 +62,10 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
   }
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
-    setIsLoading(true)
+    const resultAction = await dispatch(submitApplication(data))
 
-    try {
-      const [day, month, year] = data.birthdate.split('-')
-      const formattedDate = `${year}-${month}-${day}`
-
-      const response = await fetch('http://localhost:8080/application', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...data,
-          birthdate: formattedDate,
-          amount: Number(data.amount),
-          term: Number(data.term.split(' ')[0]),
-        }),
-      })
-      console.log(
-        JSON.stringify({
-          ...data,
-          birthDate: formattedDate,
-          amount: Number(data.amount),
-          term: Number(data.term.split(' ')[0]),
-        })
-      )
-      if (!response.ok) {
-        throw new Error(`Ошибка сервера: ${response.statusText}`)
-      }
-
-      const result = await response.json()
-      console.log('Ответ сервера:', result)
-      reset({term: '6 months', amount: minAmount})
-    } catch (error) {
-      console.error('Ошибка при отправке:', error)
-    } finally {
-      setIsLoading(false)
+    if (submitApplication.fulfilled.match(resultAction)) {
+      reset({ term: '6 months', amount: minAmount })
     }
   }
 
@@ -241,9 +213,12 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
           </div>
 
           <div className={styles['customize-card__btn-box']}>
-            <Button className={styles['customize-card__btn-submit']} disabled={isLoading}>
-              {isLoading ? 'Loading...' : 'Continue'}
+            <Button className={styles['customize-card__btn-submit']} disabled={loading}>
+              {loading ? 'Loading...' : 'Continue'}
             </Button>
+            {error && (
+              <p className={styles['customize-card__error-message']}>{error}</p>
+            )}
           </div>
         </form>
       </div>
