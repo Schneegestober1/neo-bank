@@ -11,7 +11,7 @@ export type CustomizeCardRef = {
 }
 
 type FormValues = {
-  amount: number 
+  amount: number
   lastName: string
   firstName: string
   patronymic?: string
@@ -23,7 +23,7 @@ type FormValues = {
 }
 
 const minAmount = 150_000
-const maxAmount = 1_000_000
+const maxAmount = 600_000
 
 const validationSchema = yup.object().shape({
   amount: yup
