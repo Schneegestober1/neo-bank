@@ -2,6 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 import styles from './form-input.module.scss'
 import type { FieldError } from 'react-hook-form'
+import ErrorIcon from '../../../assets/icons/ErrorIcon'
 
 interface FormInputProps {
   label: string
@@ -60,6 +61,7 @@ const FormInput: React.FC<FormInputProps> = ({
       )}
 
       {error && <span className={styles['error-message']}>{error.message}</span>}
+      {error && <ErrorIcon className={styles['error-icon']} />}
     </label>
   )
 }
