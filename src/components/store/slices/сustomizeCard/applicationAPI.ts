@@ -4,7 +4,7 @@ export async function postApplication(data: FormValues) {
   const [day, month, year] = data.birthdate.split('-')
   const formattedDate = `${year}-${month}-${day}`
 
-  const response = await fetch('http://localhost:800/application', {
+  const response = await fetch('http://localhost:8080/application', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
