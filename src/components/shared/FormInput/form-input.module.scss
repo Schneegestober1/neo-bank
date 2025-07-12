@@ -18,8 +18,8 @@
 
 .input-wrapper {
   position: relative;
-  // display: inline-block;  
-  // width: 100%;            
+  // display: inline-block;
+  // width: 100%;
 }
 
 .required {
@@ -55,7 +55,7 @@
   line-height: 100%;
 }
 
-.error-icon {
+.error-icon, .success-icon {
   position: absolute;
   top: 50%;
   right: 8px;

@@ -52,10 +52,11 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, dirtyFields, touchedFields },
   } = useForm<FormValues>({
     resolver: yupResolver(validationSchema),
     defaultValues: { term: '6 months' },
+    mode: 'onChange', // чтобы следить за изменениями в реальном времени
   })
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
@@ -141,6 +142,7 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
               placeholder="For Example Doe"
               {...register('lastName')}
               error={errors.lastName}
+              isValid={!errors.lastName && (dirtyFields.lastName || touchedFields.lastName)}
             />
 
             <FormInput
@@ -148,6 +150,7 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
               placeholder="For Example John"
               {...register('firstName')}
               error={errors.firstName}
+              isValid={!errors.firstName && (dirtyFields.firstName || touchedFields.firstName)}
             />
 
             <FormInput
@@ -155,6 +158,7 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
               placeholder="For Example Victorovich"
               {...register('patronymic')}
               error={errors.patronymic}
+              isValid={!errors.patronymic && (dirtyFields.patronymic || touchedFields.patronymic)}
             />
 
             <FormInput
@@ -163,6 +167,7 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
               type="select"
               options={['6 months', '12 months', '18 months', '24 months']}
               error={errors.term}
+              isValid={!errors.term && (dirtyFields.term || touchedFields.term)}
             />
 
             <FormInput
@@ -170,6 +175,7 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
               placeholder="test@gmail.com"
               {...register('email')}
               error={errors.email}
+              isValid={!errors.email && (dirtyFields.email || touchedFields.email)}
             />
 
             <FormInput
@@ -177,6 +183,7 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
               {...register('birthDate')}
               type="date"
               error={errors.birthDate}
+              isValid={!errors.birthDate && (dirtyFields.birthDate || touchedFields.birthDate)}
             />
 
             <FormInput
@@ -185,6 +192,10 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
               maxLength={4}
               {...register('passportSeries')}
               error={errors.passportSeries}
+              isValid={
+                !errors.passportSeries &&
+                (dirtyFields.passportSeries || touchedFields.passportSeries)
+              }
             />
 
             <FormInput
@@ -193,6 +204,10 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
               maxLength={6}
               {...register('passportNumber')}
               error={errors.passportNumber}
+              isValid={
+                !errors.passportNumber &&
+                (dirtyFields.passportNumber || touchedFields.passportNumber)
+              }
             />
           </div>
 

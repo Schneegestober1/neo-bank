@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import styles from './form-input.module.scss'
 import type { FieldError } from 'react-hook-form'
 import ErrorIcon from '../../../assets/icons/ErrorIcon'
+import SuccessIcon from '../../../assets/icons/SuccessIcon'
 
 interface FormInputProps {
   label: string
@@ -14,6 +15,7 @@ interface FormInputProps {
   className?: string
   options?: string[]
   error?: FieldError
+  isValid?: boolean
 }
 
 const FormInput: React.FC<FormInputProps> = ({
@@ -26,6 +28,7 @@ const FormInput: React.FC<FormInputProps> = ({
   className,
   options = [],
   error,
+  isValid,
 }) => {
   return (
     <label htmlFor={name} className={clsx(styles['label'], className)}>
@@ -63,6 +66,7 @@ const FormInput: React.FC<FormInputProps> = ({
           />
         )}
         {error && <ErrorIcon className={styles['error-icon']} />}
+        {!error && isValid && <SuccessIcon className={styles['success-icon']} />}
       </div>
 
       {error && <span className={styles['error-message']}>{error.message}</span>}
