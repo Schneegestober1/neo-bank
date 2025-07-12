@@ -11,7 +11,7 @@ export const subscribeEmail = createAsyncThunk<
   { rejectValue: SubscribeEmailThunkReject }
 >('newsletter/subscribeEmail', async (email, thunkAPI) => {
   try {
-    const response = await fetch('/email', {
+    const response = await fetch('http://localhost:8080/email', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email }),
