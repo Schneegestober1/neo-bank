@@ -2,16 +2,75 @@ import { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import Button from '../../shared/Button/Button'
 import FormInput from '../../shared/FormInput/FormInput'
 import styles from './customize-card.module.scss'
+import * as yup from 'yup'
+import { useForm, type SubmitHandler } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 export type CustomizeCardRef = {
   scrollToForm: () => void
 }
 
+type FormValues = {
+  lastName: string
+  firstName: string
+  patronymic?: string
+  term: string
+  email: string
+  birthDate: string
+  passportSeries: string
+  passportNumber: string
+}
+
+const validationSchema = yup.object().shape({
+  lastName: yup.string().trim().required('Last name is required'),
+  firstName: yup.string().trim().required('First name is required'),
+  patronymic: yup.string().trim().nullable(),
+  term: yup.string().required('Term is required'),
+  email: yup.string().email('Invalid email').required('Email is required'),
+  birthDate: yup
+    .date()
+    .typeError('Enter a valid date')
+    .max(new Date(new Date().setFullYear(new Date().getFullYear() - 18)), 'You must be 18+')
+    .required('Date of birth is required'),
+  passportSeries: yup
+    .string()
+    .matches(/^\d{4}$/, 'Must be 4 digits')
+    .required('Passport series is required'),
+  passportNumber: yup
+    .string()
+    .matches(/^\d{6}$/, 'Must be 6 digits')
+    .required('Passport number is required'),
+})
+
 const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
+  const [isLoading, setIsLoading] = useState(false)
   const [value, setValue] = useState(150_000)
   const min = 150_000
   const max = 600_000
   const percent = ((value - min) / (max - min)) * 100
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>({
+    resolver: yupResolver(validationSchema),
+    defaultValues: { term: '6 months' },
+  })
+
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
+    const finalData = {
+      ...data,
+      amount: value,
+    }
+
+    setIsLoading(true)
+
+    setTimeout(() => {
+      setIsLoading(false)
+      console.log('Submitted:', finalData)
+    }, 2000)
+  }
 
   const formRef = useRef<HTMLDivElement>(null)
 
@@ -74,59 +133,73 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
           </div>
         </div>
 
-        <form className={styles['customize-card__form']}>
+        <form className={styles['customize-card__form']} onSubmit={handleSubmit(onSubmit)}>
           <h3 className={styles['customize-card__form-title']}>Contact Information</h3>
           <div className={styles['customize-card__grid']}>
             <FormInput
               label="Your last name"
-              name="lastName"
               placeholder="For Example Doe"
-              required
+              {...register('lastName')}
+              error={errors.lastName}
             />
+
             <FormInput
               label="Your first name"
-              name="firstName"
               placeholder="For Example John"
-              required
+              {...register('firstName')}
+              error={errors.firstName}
             />
+
             <FormInput
               label="Your patronymic"
-              name="patronymic"
               placeholder="For Example Victorovich"
+              {...register('patronymic')}
+              error={errors.patronymic}
             />
+
             <FormInput
               label="Select term"
-              name="term"
+              {...register('term')}
               type="select"
-              required
               options={['6 months', '12 months', '18 months', '24 months']}
+              error={errors.term}
             />
+
             <FormInput
               label="Your email"
-              name="email"
-              type="email"
               placeholder="test@gmail.com"
-              required
+              {...register('email')}
+              error={errors.email}
             />
-            <FormInput label="Your date of birth" name="birthDate" type="date" required />
+
+            <FormInput
+              label="Your date of birth"
+              {...register('birthDate')}
+              type="date"
+              error={errors.birthDate}
+            />
+
             <FormInput
               label="Your passport series"
-              name="passportSeries"
               placeholder="0000"
               maxLength={4}
-              required
+              {...register('passportSeries')}
+              error={errors.passportSeries}
             />
+
             <FormInput
               label="Your passport number"
-              name="passportNumber"
               placeholder="000000"
               maxLength={6}
-              required
+              {...register('passportNumber')}
+              error={errors.passportNumber}
             />
           </div>
 
           <div className={styles['customize-card__btn-box']}>
-            <Button className={styles['customize-card__btn-submit']}>Continue</Button>
+            <Button className={styles['customize-card__btn-submit']} disabled={isLoading}>
+              {isLoading ? 'Loading...' : 'Continue'}
+            </Button>
           </div>
         </form>
       </div>

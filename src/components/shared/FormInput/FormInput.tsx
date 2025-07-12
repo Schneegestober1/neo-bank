@@ -1,6 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 import styles from './form-input.module.scss'
+import type { FieldError } from 'react-hook-form'
 
 interface FormInputProps {
   label: string
@@ -11,6 +12,7 @@ interface FormInputProps {
   maxLength?: number
   className?: string
   options?: string[]
+  error?: FieldError
 }
 
 const FormInput: React.FC<FormInputProps> = ({
@@ -22,6 +24,7 @@ const FormInput: React.FC<FormInputProps> = ({
   maxLength,
   className,
   options = [],
+  error,
 }) => {
   return (
     <label htmlFor={name} className={clsx(styles['label'], className)}>
@@ -31,7 +34,13 @@ const FormInput: React.FC<FormInputProps> = ({
       </div>
 
       {type === 'select' ? (
-        <select id={name} name={name} required={required} className={styles['input']}>
+        <select
+          id={name}
+          name={name}
+          required={required}
+          className={clsx(styles['input'], { [styles['input-error']]: error })}
+        >
+          <option value="" disabled></option>
           {options.map((option) => (
             <option key={option} value={option}>
               {option}
@@ -46,9 +55,11 @@ const FormInput: React.FC<FormInputProps> = ({
           placeholder={placeholder}
           required={required}
           maxLength={maxLength}
-          className={styles['input']}
+          className={clsx(styles['input'], { [styles['input-error']]: error })}
         />
       )}
+
+      {error && <span className={styles['error-message']}>{error.message}</span>}
     </label>
   )
 }

@@ -14,7 +14,6 @@ import AboutCardBlock from './components/loan/blocks/AboutCardBlock/AboutCardBlo
 import CashbackBlock from './components/loan/blocks/CashbackBlock/CashbackBlock'
 import FaqBlock from './components/loan/blocks/FaqBlock/FaqBlock'
 
-
 const router = createBrowserRouter([
   {
     path: '/',

@@ -10,12 +10,7 @@ const SuccessIcon = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>(
         aria-hidden="true"
         focusable="false"
       >
-        <symbol
-          id="check-fill"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-        >
+        <symbol id="check-fill" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <rect width="24" height="24" />
           <path
             fillRule="evenodd"
