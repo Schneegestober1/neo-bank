@@ -18,7 +18,7 @@ interface FormInputProps {
   isValid?: boolean
 }
 
-const FormInput: React.FC<FormInputProps> = ({
+const FormInput: React.FC<FormInputProps & React.InputHTMLAttributes<HTMLInputElement> & React.SelectHTMLAttributes<HTMLSelectElement>> = ({
   label,
   name,
   type = 'text',
@@ -29,6 +29,7 @@ const FormInput: React.FC<FormInputProps> = ({
   options = [],
   error,
   isValid,
+  ...rest
 }) => {
   return (
     <label htmlFor={name} className={clsx(styles['label'], className)}>
@@ -38,14 +39,13 @@ const FormInput: React.FC<FormInputProps> = ({
       </div>
 
       <div className={styles['input-wrapper']}>
-        {' '}
-        {/* новый контейнер */}
         {type === 'select' ? (
           <select
             id={name}
             name={name}
             required={required}
             className={clsx(styles['input'], { [styles['input-error']]: error })}
+            {...rest}
           >
             <option value="" disabled></option>
             {options.map((option) => (
@@ -63,8 +63,10 @@ const FormInput: React.FC<FormInputProps> = ({
             required={required}
             maxLength={maxLength}
             className={clsx(styles['input'], { [styles['input-error']]: error })}
+            {...rest}
           />
         )}
+
         {error && <ErrorIcon className={styles['error-icon']} />}
         {!error && isValid && <SuccessIcon className={styles['success-icon']} />}
       </div>
@@ -73,5 +75,6 @@ const FormInput: React.FC<FormInputProps> = ({
     </label>
   )
 }
+
 
 export default FormInput
