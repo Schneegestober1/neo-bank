@@ -2,69 +2,10 @@ import { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import Button from '../../shared/Button/Button'
 import FormInput from '../../shared/FormInput/FormInput'
 import styles from './customize-card.module.scss'
-import * as yup from 'yup'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-
-export type CustomizeCardRef = {
-  scrollToForm: () => void
-}
-
-type FormValues = {
-  amount: number
-  lastName: string
-  firstName: string
-  patronymic?: string
-  term: string
-  email: string
-  birthdate: string
-  passportSeries: string
-  passportNumber: string
-}
-
-const minAmount = 150_000
-const maxAmount = 600_000
-
-const validationSchema = yup.object().shape({
-  amount: yup
-    .number()
-    .typeError('Amount must be a number')
-    .min(minAmount, `Minimum amount is ${minAmount.toLocaleString('ru-RU')}`)
-    .max(maxAmount, `Maximum amount is ${maxAmount.toLocaleString('ru-RU')}`)
-    .required('Amount is required'),
-  lastName: yup.string().trim().required('Last name is required'),
-  firstName: yup.string().trim().required('First name is required'),
-  patronymic: yup.string().trim().notRequired(),
-  term: yup.string().required('Term is required'),
-  email: yup.string().email('Invalid email').required('Email is required'),
-  birthdate: yup
-    .string()
-    .required('Date of birth is required')
-    .matches(/^\d{2}-\d{2}-\d{4}$/, 'Enter date in format DD-MM-YYYY')
-    .test('is-18+', 'You must be at least 18 years old', (value) => {
-      if (!value) return false
-
-      const [day, month, year] = value.split('-')
-      const birthdate = new Date(`${year}-${month}-${day}`)
-      if (isNaN(birthdate.getTime())) return false
-
-      const today = new Date()
-      const age = today.getFullYear() - birthdate.getFullYear()
-      const m = today.getMonth() - birthdate.getMonth()
-      const isBeforeBirthday = m < 0 || (m === 0 && today.getDate() < birthdate.getDate())
-
-      return age > 18 || (age === 18 && !isBeforeBirthday)
-    }),
-
-  passportSeries: yup
-    .string()
-    .matches(/^\d{4}$/, 'Must be 4 digits')
-    .required('Passport series is required'),
-  passportNumber: yup
-    .string()
-    .matches(/^\d{6}$/, 'Must be 6 digits')
-    .required('Passport number is required'),
-})
+import type { CustomizeCardRef, FormValues } from './CustomizeCardTypes'
+import { maxAmount, minAmount, validationSchema } from './validationSchema'
 
 const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
   const {
@@ -73,6 +14,7 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
     formState: { errors, dirtyFields, touchedFields },
     watch,
     setValue,
+    reset,
   } = useForm<FormValues>({
     resolver: yupResolver(validationSchema),
     defaultValues: { term: '6 months', amount: minAmount },
@@ -147,6 +89,7 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
 
       const result = await response.json()
       console.log('Ответ сервера:', result)
+      reset({term: '6 months', amount: minAmount})
     } catch (error) {
       console.error('Ошибка при отправке:', error)
     } finally {
