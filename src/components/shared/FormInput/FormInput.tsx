@@ -18,7 +18,11 @@ interface FormInputProps {
   isValid?: boolean
 }
 
-const FormInput: React.FC<FormInputProps & React.InputHTMLAttributes<HTMLInputElement> & React.SelectHTMLAttributes<HTMLSelectElement>> = ({
+const FormInput: React.FC<
+  FormInputProps &
+    React.InputHTMLAttributes<HTMLInputElement> &
+    React.SelectHTMLAttributes<HTMLSelectElement>
+> = ({
   label,
   name,
   type = 'text',
@@ -75,6 +79,5 @@ const FormInput: React.FC<FormInputProps & React.InputHTMLAttributes<HTMLInputEl
     </label>
   )
 }
-
 
 export default FormInput

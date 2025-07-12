@@ -13,7 +13,7 @@ export type CustomizeCardRef = {
 type FormValues = {
   lastName: string
   firstName: string
-  patronymic?: string
+  patronymic?: string | null
   term: string
   email: string
   birthDate: string
@@ -24,7 +24,7 @@ type FormValues = {
 const validationSchema = yup.object().shape({
   lastName: yup.string().trim().required('Last name is required'),
   firstName: yup.string().trim().required('First name is required'),
-  patronymic: yup.string().trim().nullable(),
+  patronymic: yup.string().trim().nullable().notRequired(),
   term: yup.string().required('Term is required'),
   email: yup.string().email('Invalid email').required('Email is required'),
   birthDate: yup
@@ -58,8 +58,6 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
     defaultValues: { term: '6 months' },
     mode: 'onChange',
   })
-
-
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     const finalData = {
