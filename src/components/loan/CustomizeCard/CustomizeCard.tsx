@@ -11,6 +11,7 @@ export type CustomizeCardRef = {
 }
 
 type FormValues = {
+  amount: string
   lastName: string
   firstName: string
   patronymic?: string | null
@@ -21,7 +22,16 @@ type FormValues = {
   passportNumber: string
 }
 
+const minAmount = 150_000
+const maxAmount = 600_000
+
 const validationSchema = yup.object().shape({
+  amount: yup
+    .number()
+    .typeError('Amount must be a number')
+    .min(minAmount, `Minimum amount is ${minAmount.toLocaleString('ru-RU')}`)
+    .max(maxAmount, `Maximum amount is ${maxAmount.toLocaleString('ru-RU')}`)
+    .required('Amount is required'),
   lastName: yup.string().trim().required('Last name is required'),
   firstName: yup.string().trim().required('First name is required'),
   patronymic: yup.string().trim().nullable().notRequired(),
@@ -43,52 +53,44 @@ const validationSchema = yup.object().shape({
 })
 
 const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
-  const [isLoading, setIsLoading] = useState(false)
-  const [value, setValue] = useState(150_000)
-  const min = 150_000
-  const max = 600_000
-  const percent = ((value - min) / (max - min)) * 100
-
   const {
     register,
     handleSubmit,
     formState: { errors, dirtyFields, touchedFields },
     watch,
+    setValue,
   } = useForm<FormValues>({
     resolver: yupResolver(validationSchema),
-    defaultValues: { term: '6 months' },
+    defaultValues: { term: '6 months', amount: minAmount.toString() },
     mode: 'onChange',
   })
 
   const watchedFields = watch()
-
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
-    const finalData = {
-      ...data,
-      amount: value,
-    }
-
-    setIsLoading(true)
-
-    setTimeout(() => {
-      setIsLoading(false)
-      console.log('Submitted:', finalData)
-    }, 2000)
-  }
-
   const formRef = useRef<HTMLDivElement>(null)
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(Number(e.target.value))
+  const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = Number(e.target.value)
+    setValue('amount', val.toString(), { shouldValidate: true, shouldDirty: true })
   }
 
-  useImperativeHandle(ref, () => ({
-    scrollToForm: () => {
-      formRef.current?.scrollIntoView({ behavior: 'smooth' })
-    },
-  }))
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const rawVal = e.target.value.replace(/\D/g, '')
+    setValue('amount', rawVal, { shouldValidate: true, shouldDirty: true })
+  }
 
-  
+  const handleInputBlur = () => {
+    let numVal = Number(watchedFields.amount)
+
+    if (!numVal || numVal < minAmount) numVal = minAmount
+    if (numVal > maxAmount) numVal = maxAmount
+
+    setValue('amount', numVal.toString(), { shouldValidate: true, shouldDirty: true })
+  }
+
+  const amountValue = Number(watchedFields.amount) || minAmount
+  const percent = ((amountValue - minAmount) / (maxAmount - minAmount)) * 100
+
   const isFieldValid = (fieldName: keyof FormValues) => {
     const value = watchedFields[fieldName]
     const isTouchedOrDirty = dirtyFields[fieldName] || touchedFields[fieldName]
@@ -99,6 +101,38 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
       (typeof value !== 'string' || value.trim() !== '')
     )
   }
+
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    setIsLoading(true)
+
+    try {
+      const response = await fetch('http://localhost:8080/application', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...data,
+          amount: Number(data.amount),
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error(`Ошибка сервера: ${response.statusText}`)
+      }
+
+      const result = await response.json()
+      console.log('Ответ сервера:', result)
+    } catch (error) {
+      console.error('Ошибка при отправке:', error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  useImperativeHandle(ref, () => ({
+    scrollToForm: () => {
+      formRef.current?.scrollIntoView({ behavior: 'smooth' })
+    },
+  }))
 
   return (
     <div className={styles['customize-card']} ref={formRef}>
@@ -113,19 +147,26 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
             <div className={styles['customize-card__amount-selector']}>
               <div className={styles['customize-card__amount-labels']}>
                 <p className={styles['customize-card__label']}>Select amount</p>
-                <p className={styles['customize-card__selected-amount']}>
-                  {value.toLocaleString('ru-RU')}
-                </p>
+
+                {/* Инпут суммы */}
+                <input
+                  type="text"
+                  {...register('amount')}
+                  value={watchedFields.amount ?? ''}
+                  onChange={handleInputChange}
+                  onBlur={handleInputBlur}
+                  className={styles['customize-card__amount-input']}
+                />
               </div>
 
               <div className={styles['customize-card__slider']}>
                 <input
                   type="range"
-                  min={min}
-                  max={max}
+                  min={minAmount}
+                  max={maxAmount}
                   step={1000}
-                  value={value}
-                  onChange={handleChange}
+                  value={amountValue}
+                  onChange={handleSliderChange}
                   className={styles['customize-card__range-input']}
                   style={{
                     background: `linear-gradient(to right, #6b38f2 0%, #6b38f2 ${percent}%, #e0e6ed ${percent}%, #e0e6ed 100%)`,
@@ -134,8 +175,8 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
               </div>
 
               <div className={styles['customize-card__amount-range']}>
-                <span>{min.toLocaleString('ru-RU')}</span>
-                <span>{max.toLocaleString('ru-RU')}</span>
+                <span>{minAmount.toLocaleString('ru-RU')}</span>
+                <span>{maxAmount.toLocaleString('ru-RU')}</span>
               </div>
             </div>
           </div>
@@ -144,7 +185,7 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
 
           <div className={styles['customize-card__chosen-amount']}>
             <h4 className={styles['customize-card__chosen-title']}>You have chosen the amount</h4>
-            <p className={styles['customize-card__chosen-sum']}>{value.toLocaleString('ru-RU')}</p>
+            <p className={styles['customize-card__chosen-sum']}>{amountValue.toLocaleString('ru-RU')}</p>
             <div className={styles['customize-card__chosen-sum-line']}></div>
           </div>
         </div>
