@@ -11,19 +11,19 @@ export type CustomizeCardRef = {
 }
 
 type FormValues = {
-  amount: string
+  amount: number 
   lastName: string
   firstName: string
-  patronymic?: string | null
+  patronymic?: string
   term: string
   email: string
-  birthDate: string
+  birthdate: string
   passportSeries: string
   passportNumber: string
 }
 
 const minAmount = 150_000
-const maxAmount = 600_000
+const maxAmount = 1_000_000
 
 const validationSchema = yup.object().shape({
   amount: yup
@@ -34,14 +34,28 @@ const validationSchema = yup.object().shape({
     .required('Amount is required'),
   lastName: yup.string().trim().required('Last name is required'),
   firstName: yup.string().trim().required('First name is required'),
-  patronymic: yup.string().trim().nullable().notRequired(),
+  patronymic: yup.string().trim().notRequired(),
   term: yup.string().required('Term is required'),
   email: yup.string().email('Invalid email').required('Email is required'),
-  birthDate: yup
-    .date()
-    .typeError('Enter a valid date')
-    .max(new Date(new Date().setFullYear(new Date().getFullYear() - 18)), 'You must be 18+')
-    .required('Date of birth is required'),
+  birthdate: yup
+    .string()
+    .required('Date of birth is required')
+    .matches(/^\d{2}-\d{2}-\d{4}$/, 'Enter date in format DD-MM-YYYY')
+    .test('is-18+', 'You must be at least 18 years old', (value) => {
+      if (!value) return false
+
+      const [day, month, year] = value.split('-')
+      const birthdate = new Date(`${year}-${month}-${day}`)
+      if (isNaN(birthdate.getTime())) return false
+
+      const today = new Date()
+      const age = today.getFullYear() - birthdate.getFullYear()
+      const m = today.getMonth() - birthdate.getMonth()
+      const isBeforeBirthday = m < 0 || (m === 0 && today.getDate() < birthdate.getDate())
+
+      return age > 18 || (age === 18 && !isBeforeBirthday)
+    }),
+
   passportSeries: yup
     .string()
     .matches(/^\d{4}$/, 'Must be 4 digits')
@@ -61,7 +75,7 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
     setValue,
   } = useForm<FormValues>({
     resolver: yupResolver(validationSchema),
-    defaultValues: { term: '6 months', amount: minAmount.toString() },
+    defaultValues: { term: '6 months', amount: minAmount },
     mode: 'onChange',
   })
 
@@ -71,11 +85,11 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
 
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = Number(e.target.value)
-    setValue('amount', val.toString(), { shouldValidate: true, shouldDirty: true })
+    setValue('amount', val, { shouldValidate: true, shouldDirty: true })
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const rawVal = e.target.value.replace(/\D/g, '')
+    const rawVal = Number.parseInt(e.target.value.replace(/\D/g, ''))
     setValue('amount', rawVal, { shouldValidate: true, shouldDirty: true })
   }
 
@@ -85,7 +99,7 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
     if (!numVal || numVal < minAmount) numVal = minAmount
     if (numVal > maxAmount) numVal = maxAmount
 
-    setValue('amount', numVal.toString(), { shouldValidate: true, shouldDirty: true })
+    setValue('amount', numVal, { shouldValidate: true, shouldDirty: true })
   }
 
   const amountValue = Number(watchedFields.amount) || minAmount
@@ -106,15 +120,27 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
     setIsLoading(true)
 
     try {
+      const [day, month, year] = data.birthdate.split('-')
+      const formattedDate = `${year}-${month}-${day}`
+
       const response = await fetch('http://localhost:8080/application', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...data,
+          birthdate: formattedDate,
           amount: Number(data.amount),
+          term: Number(data.term.split(' ')[0]),
         }),
       })
-
+      console.log(
+        JSON.stringify({
+          ...data,
+          birthDate: formattedDate,
+          amount: Number(data.amount),
+          term: Number(data.term.split(' ')[0]),
+        })
+      )
       if (!response.ok) {
         throw new Error(`Ошибка сервера: ${response.statusText}`)
       }
@@ -148,7 +174,6 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
               <div className={styles['customize-card__amount-labels']}>
                 <p className={styles['customize-card__label']}>Select amount</p>
 
-                {/* Инпут суммы */}
                 <input
                   type="text"
                   {...register('amount')}
@@ -185,7 +210,9 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
 
           <div className={styles['customize-card__chosen-amount']}>
             <h4 className={styles['customize-card__chosen-title']}>You have chosen the amount</h4>
-            <p className={styles['customize-card__chosen-sum']}>{amountValue.toLocaleString('ru-RU')}</p>
+            <p className={styles['customize-card__chosen-sum']}>
+              {amountValue.toLocaleString('ru-RU')}
+            </p>
             <div className={styles['customize-card__chosen-sum-line']}></div>
           </div>
         </div>
@@ -241,11 +268,12 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
 
             <FormInput
               label="Your date of birth"
-              {...register('birthDate')}
-              type="date"
-              error={errors.birthDate}
-              isValid={isFieldValid('birthDate')}
-              value={watchedFields.birthDate ?? ''}
+              type="text"
+              placeholder="DD-MM-YYYY"
+              {...register('birthdate')}
+              error={errors.birthdate}
+              isValid={isFieldValid('birthdate')}
+              value={watchedFields.birthdate ?? ''}
             />
 
             <FormInput
