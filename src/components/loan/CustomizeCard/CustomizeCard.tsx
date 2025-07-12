@@ -216,9 +216,10 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
             <Button className={styles['customize-card__btn-submit']} disabled={loading}>
               {loading ? 'Loading...' : 'Continue'}
             </Button>
-            {error && (
-              <p className={styles['customize-card__error-message']}>{error}</p>
-            )}
+          </div>
+          <div className={styles['customize-card__notification']}>
+            {error && <p className={styles['customize-card__error-message']}>{error}</p>}
+            {success && <p className={styles['customize-card__success-message']}>Success</p>}
           </div>
         </form>
       </div>

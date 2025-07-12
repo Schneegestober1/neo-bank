@@ -1,6 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit"
-import { submitApplication } from "./applicationThunks"
-
+import { createSlice } from '@reduxjs/toolkit'
+import { submitApplication } from './applicationThunks'
 
 type ApplicationState = {
   loading: boolean

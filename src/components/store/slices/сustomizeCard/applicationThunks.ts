@@ -1,6 +1,6 @@
-import { createAsyncThunk } from "@reduxjs/toolkit"
-import type { FormValues } from "../../../loan/CustomizeCard/CustomizeCardTypes"
-import { postApplication } from "./applicationAPI"
+import { createAsyncThunk } from '@reduxjs/toolkit'
+import type { FormValues } from '../../../loan/CustomizeCard/CustomizeCardTypes'
+import { postApplication } from './applicationAPI'
 
 export const submitApplication = createAsyncThunk(
   'application/submit',
