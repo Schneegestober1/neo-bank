@@ -53,14 +53,13 @@ const CustomizeCard = forwardRef<CustomizeCardRef>((_, ref) => {
     register,
     handleSubmit,
     formState: { errors, dirtyFields, touchedFields },
-    watch,
   } = useForm<FormValues>({
     resolver: yupResolver(validationSchema),
     defaultValues: { term: '6 months' },
     mode: 'onChange',
   })
 
-  const watchedFields = watch()
+
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     const finalData = {
