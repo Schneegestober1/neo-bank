@@ -151,15 +151,15 @@ h4 {
     border-radius: 8px;
     padding: 1rem 2rem;
   }
-  &__notification{
+  &__notification {
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  &__error-message{
+  &__error-message {
     color: $red-1;
   }
-  &__success-message{
+  &__success-message {
     color: green;
   }
 }
