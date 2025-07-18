@@ -1,0 +1,16 @@
+@use '../../../../styles/color-palette.scss' as *;
+@use '../../../../styles/mixins.scss' as *;
+
+.cashback-block {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 2rem;
+  &__card {
+    grid-column: span 1 !important;
+  }
+
+  &__card:nth-child(even) {
+    background: $green-1;
+  }
+}

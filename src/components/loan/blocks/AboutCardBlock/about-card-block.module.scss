@@ -1,0 +1,9 @@
+@use '../../../../styles/color-palette.scss' as *;
+@use '../../../../styles/mixins.scss' as *;
+
+.credit-card-benefits__cards {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 40px;
+  margin-top: 3.0625rem;
+}

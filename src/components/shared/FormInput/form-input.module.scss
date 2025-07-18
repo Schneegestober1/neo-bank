@@ -1,0 +1,67 @@
+@use '../../../styles/color-palette.scss' as *;
+
+.label {
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 100%;
+  color: $black-0;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-bottom: 0.5rem;
+}
+
+.input-wrapper {
+  position: relative;
+  // display: inline-block;
+  // width: 100%;
+}
+
+.required {
+  @extend .label;
+  color: $red-1;
+}
+
+.input {
+  max-width: 297px;
+  width: 100%;
+  height: 40px;
+  padding-left: 16px;
+  outline: 0;
+  border-radius: 6px;
+  border: 2px solid $gray-4;
+  background: $orange-3;
+  font-weight: 400;
+  font-size: 14px;
+  color: $gray-4;
+  &:focus {
+    border-color: $purple-1;
+  }
+}
+
+.input-error {
+  border-color: $red-2;
+}
+
+.error-message {
+  color: $red-2;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 100%;
+}
+
+.error-icon,
+.success-icon {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  width: 24px;
+  height: 24px;
+}

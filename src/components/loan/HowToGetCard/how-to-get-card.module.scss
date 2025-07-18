@@ -1,0 +1,69 @@
+@use '../../../styles/color-palette.scss' as *;
+@use '../../../styles/mixins.scss' as *;
+
+.how-to-get-card {
+  padding-left: calc(50% - 580px);
+  padding-right: calc(50% - 580px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.75rem;
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 1rem;
+  }
+  &__step {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+  }
+  &__step-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 100%;
+  }
+  &__title {
+    font-weight: 700;
+    font-size: 1.875rem;
+    line-height: 147%;
+    color: $black-0;
+  }
+  &__step-wrapper {
+    background-color: $gray-11;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-bottom: 1.125rem;
+  }
+  &__step-number {
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 147%;
+    color: $black-0;
+  }
+  &__line {
+    max-width: 250px;
+    width: 100%;
+    height: 2px;
+    background-color: $gray-4;
+  }
+  &__step-description {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 147%;
+    color: $black-0;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,35 @@
+@use '../../../styles/color-palette.scss' as *;
+@use '../../../styles/mixins.scss' as *;
+
+.faq-block {
+  &__item {
+    padding: 32px;
+    border: 1px solid $gray-10;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__question {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 147%;
+    color: $black-2;
+  }
+  &__answer {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 147%;
+    color: $brown-1;
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 3.5rem;
+  }
+  &__icon {
+    cursor: pointer;
+    width: 1rem;
+    height: 1rem;
+    transition: transform 0.3s ease;
+    &--active {
+      transform: rotate(180deg);
+    }
+  }
+}
